@@ -29,34 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelError = new System.Windows.Forms.Label();
+            this.comboBoxFindUser = new System.Windows.Forms.ComboBox();
             this.UserFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserEmail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.useraddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserPhones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserDogs = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DaysSumForDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcceptMessages = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DogsWatch = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ReservationsNumber = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CreateOrder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
-            this.DogNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogShvav = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogImage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogNeuter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DogRabiesVaccine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogFriendlyWith = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogDig = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DogJump = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Manager_Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
+            this.Vet = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.UserComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateDtails = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.AddDog = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,17 +81,159 @@
             this.UserEmail,
             this.useraddress,
             this.UserPhones,
-            this.UserDogs,
+            this.DaysSumForDiscount,
+            this.AcceptMessages,
+            this.DogsWatch,
             this.ReservationsNumber,
-            this.CreateOrder});
-            this.dataGridView1.Location = new System.Drawing.Point(925, 185);
+            this.CreateOrder,
+            this.Vet,
+            this.UserComments,
+            this.UpdateDtails,
+            this.AddDog});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 185);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(537, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(1474, 566);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.bindingSourceDogs;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 24);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(1474, 25);
+            this.bindingNavigator1.TabIndex = 4;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelError.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelError.Location = new System.Drawing.Point(89, 82);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 25);
+            this.labelError.TabIndex = 5;
+            // 
+            // comboBoxFindUser
+            // 
+            this.comboBoxFindUser.FormattingEnabled = true;
+            this.comboBoxFindUser.Location = new System.Drawing.Point(1244, 108);
+            this.comboBoxFindUser.Name = "comboBoxFindUser";
+            this.comboBoxFindUser.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFindUser.TabIndex = 6;
+            this.comboBoxFindUser.SelectedIndexChanged += new System.EventHandler(this.comboBoxFindUser_SelectedIndexChanged);
+            this.comboBoxFindUser.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFindUser_SelectionChangeCommitted);
+            this.comboBoxFindUser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxFindUser_Format);
             // 
             // UserFirstName
             // 
@@ -94,7 +243,7 @@
             this.UserFirstName.HeaderText = "שם פרטי";
             this.UserFirstName.Name = "UserFirstName";
             this.UserFirstName.ReadOnly = true;
-            this.UserFirstName.Width = 70;
+            this.UserFirstName.Width = 76;
             // 
             // User
             // 
@@ -111,7 +260,7 @@
             this.UserLastName.HeaderText = "שם משפחה";
             this.UserLastName.Name = "UserLastName";
             this.UserLastName.ReadOnly = true;
-            this.UserLastName.Width = 81;
+            this.UserLastName.Width = 88;
             // 
             // UserEmail
             // 
@@ -134,13 +283,23 @@
             this.UserPhones.HeaderText = "טלפונים";
             this.UserPhones.Name = "UserPhones";
             // 
-            // UserDogs
+            // DaysSumForDiscount
             // 
-            this.UserDogs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UserDogs.DataPropertyName = "DogsNumber";
-            this.UserDogs.HeaderText = "כלבים";
-            this.UserDogs.Name = "UserDogs";
-            this.UserDogs.Width = 46;
+            this.DaysSumForDiscount.DataPropertyName = "DaysSumForDiscount";
+            this.DaysSumForDiscount.HeaderText = "ימים צבורים";
+            this.DaysSumForDiscount.Name = "DaysSumForDiscount";
+            // 
+            // AcceptMessages
+            // 
+            this.AcceptMessages.DataPropertyName = "Acceptmessages";
+            this.AcceptMessages.HeaderText = "מקבל הודעות?";
+            this.AcceptMessages.Name = "AcceptMessages";
+            // 
+            // DogsWatch
+            // 
+            this.DogsWatch.DataPropertyName = "DogsNumber";
+            this.DogsWatch.HeaderText = "הכלבים";
+            this.DogsWatch.Name = "DogsWatch";
             // 
             // ReservationsNumber
             // 
@@ -153,145 +312,52 @@
             this.CreateOrder.HeaderText = "צור הזמנה";
             this.CreateOrder.Name = "CreateOrder";
             // 
-            // dataGridViewDogs
+            // Vet
             // 
-            this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DogNumber,
-            this.DogName,
-            this.DogComments,
-            this.DogShvav,
-            this.DogType,
-            this.DogImage,
-            this.DogGender,
-            this.DogNeuter,
-            this.DogRabiesVaccine,
-            this.DogBirthDate,
-            this.DogFriendlyWith,
-            this.DogDig,
-            this.DogJump,
-            this.Manager_Comments});
-            this.dataGridViewDogs.Location = new System.Drawing.Point(82, 185);
-            this.dataGridViewDogs.Name = "dataGridViewDogs";
-            this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(837, 150);
-            this.dataGridViewDogs.TabIndex = 3;
-            this.dataGridViewDogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.Vet.HeaderText = "וטרינר";
+            this.Vet.Name = "Vet";
             // 
-            // DogNumber
+            // UserComments
             // 
-            this.DogNumber.DataPropertyName = "DogNumber";
-            this.DogNumber.HeaderText = "Column1";
-            this.DogNumber.Name = "DogNumber";
-            this.DogNumber.Visible = false;
+            this.UserComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UserComments.HeaderText = "הערות";
+            this.UserComments.Name = "UserComments";
+            this.UserComments.Width = 64;
             // 
-            // DogName
+            // UpdateDtails
             // 
-            this.DogName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DogName.DataPropertyName = "DogName";
-            this.DogName.HeaderText = "שם כלב";
-            this.DogName.Name = "DogName";
-            this.DogName.Width = 72;
+            this.UpdateDtails.HeaderText = "עדכן";
+            this.UpdateDtails.Name = "UpdateDtails";
+            this.UpdateDtails.Text = "עדכן";
+            this.UpdateDtails.ToolTipText = "עדכן";
+            this.UpdateDtails.UseColumnTextForButtonValue = true;
             // 
-            // DogComments
+            // AddDog
             // 
-            this.DogComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DogComments.DataPropertyName = "DogComments";
-            this.DogComments.HeaderText = "הערות";
-            this.DogComments.Name = "DogComments";
-            this.DogComments.Width = 64;
-            // 
-            // DogShvav
-            // 
-            this.DogShvav.DataPropertyName = "DogShvav";
-            this.DogShvav.HeaderText = "שבב";
-            this.DogShvav.Name = "DogShvav";
-            // 
-            // DogType
-            // 
-            this.DogType.DataPropertyName = "DogType";
-            this.DogType.HeaderText = "גזע";
-            this.DogType.Name = "DogType";
-            // 
-            // DogImage
-            // 
-            this.DogImage.DataPropertyName = "DogImage";
-            this.DogImage.HeaderText = "תמונה";
-            this.DogImage.Name = "DogImage";
-            this.DogImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DogImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DogGender
-            // 
-            this.DogGender.DataPropertyName = "DogGender";
-            this.DogGender.HeaderText = "מין";
-            this.DogGender.Name = "DogGender";
-            this.DogGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DogGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DogNeuter
-            // 
-            this.DogNeuter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DogNeuter.DataPropertyName = "DogNeuter";
-            this.DogNeuter.HeaderText = "מסורס?";
-            this.DogNeuter.Name = "DogNeuter";
-            this.DogNeuter.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DogNeuter.Width = 51;
-            // 
-            // DogRabiesVaccine
-            // 
-            this.DogRabiesVaccine.DataPropertyName = "DogRabiesVaccine";
-            this.DogRabiesVaccine.HeaderText = "תאריך חיסון";
-            this.DogRabiesVaccine.Name = "DogRabiesVaccine";
-            // 
-            // DogBirthDate
-            // 
-            this.DogBirthDate.DataPropertyName = "age";
-            this.DogBirthDate.HeaderText = "גיל";
-            this.DogBirthDate.Name = "DogBirthDate";
-            // 
-            // DogFriendlyWith
-            // 
-            this.DogFriendlyWith.DataPropertyName = "DogFriendlyWith";
-            this.DogFriendlyWith.HeaderText = "מסתדר עם";
-            this.DogFriendlyWith.Name = "DogFriendlyWith";
-            // 
-            // DogDig
-            // 
-            this.DogDig.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DogDig.DataPropertyName = "DogDig";
-            this.DogDig.HeaderText = "חופר?";
-            this.DogDig.Name = "DogDig";
-            this.DogDig.Width = 44;
-            // 
-            // DogJump
-            // 
-            this.DogJump.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DogJump.DataPropertyName = "DogJump";
-            this.DogJump.HeaderText = "קופץ?";
-            this.DogJump.Name = "DogJump";
-            this.DogJump.Width = 46;
-            // 
-            // Manager_Comments
-            // 
-            this.Manager_Comments.HeaderText = "הערות מנהל";
-            this.Manager_Comments.Name = "Manager_Comments";
+            this.AddDog.HeaderText = "הוסף כלב";
+            this.AddDog.Name = "AddDog";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 751);
-            this.Controls.Add(this.dataGridViewDogs);
+            this.Controls.Add(this.comboBoxFindUser);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
-            this.Controls.SetChildIndex(this.dataGridViewDogs, 0);
+            this.Controls.SetChildIndex(this.bindingNavigator1, 0);
+            this.Controls.SetChildIndex(this.labelError, 0);
+            this.Controls.SetChildIndex(this.comboBoxFindUser, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,31 +366,37 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource bindingSourceDogs;
+        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.ComboBox comboBoxFindUser;
+        private System.Windows.Forms.BindingSource bindingSource1 = new System.Windows.Forms.BindingSource();
         private System.Windows.Forms.DataGridViewTextBoxColumn UserFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserLastName;
         private System.Windows.Forms.DataGridViewLinkColumn UserEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn useraddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserPhones;
-        private System.Windows.Forms.DataGridViewButtonColumn UserDogs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DaysSumForDiscount;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn AcceptMessages;
+        private System.Windows.Forms.DataGridViewButtonColumn DogsWatch;
         private System.Windows.Forms.DataGridViewButtonColumn ReservationsNumber;
         private System.Windows.Forms.DataGridViewButtonColumn CreateOrder;
-        private System.Windows.Forms.DataGridView dataGridViewDogs;
-        private System.Windows.Forms.BindingSource bindingSourceDogs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogComments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogShvav;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogGender;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn DogNeuter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogRabiesVaccine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogBirthDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DogFriendlyWith;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn DogDig;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn DogJump;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Manager_Comments;
+        private System.Windows.Forms.DataGridViewButtonColumn Vet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserComments;
+        private System.Windows.Forms.DataGridViewButtonColumn UpdateDtails;
+        private System.Windows.Forms.DataGridViewButtonColumn AddDog;
     }
 }
 

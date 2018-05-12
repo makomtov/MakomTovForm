@@ -53,9 +53,10 @@ namespace WindowsFormsAppMT
 
         private void ToolStripMenuItemWatchUsers_Click(object sender, EventArgs e)
         {
+
             
-               
-            Form1 f1 = new Form1();
+            
+            Form1 f1 = new Form1(LogIn.loginView);
             f1.Show();
 
         }
@@ -68,8 +69,9 @@ namespace WindowsFormsAppMT
         private void הוספתמשתמשToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (id == "Form1")
-            { 
-                Form1 f1 = new Form1();
+            {
+               
+                Form1 f1 = new Form1(LogIn.loginView);
                 f1.CloseMe();
             }
                 RegisterUser registerUser = new RegisterUser();

@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WebApiMTModel.Models.Models.View;
 
@@ -14,48 +16,47 @@ namespace WindowsFormsAppMT
 {
     public partial class RegisterUser : WindowsFormsAppMT.Menu
     {
+
         DataTable CitiesTable;
         public RegisterUser()
         {
             InitializeComponent();
-            string URI = "http://localhost:53698/api/XMLData/cities";
-            GetFileCities(URI);
+            // string URI = "http://localhost:53698/";
+            if (LogIn.token == null)
+            {
+                LogIn logIn = new LogIn();
+                logIn.Show();
+            }
+            GetFileCities();
             populateCBCities();
 
         }
 
         private void populateCBCities()
         {
-            comboBoxUserCityName.DataSource = CitiesTable;
-            comboBoxUserCityName.DisplayMember = "Heb";
-        }
-
-        private void GetFileCities(string url)
-        {
-
-
-            using (WebClient client = new WebClient() { Encoding = Encoding.UTF8 })
+            for (int i = 0; i < CitiesTable.Rows.Count; i++)
             {
 
-                var json = client.DownloadString(url);
-              //  CitiesTable = JsonConvert.DeserializeObject<DataTable>(json.ToString());
-              //  CitiesTable = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
-                DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
-
-                CitiesTable = dataSet.Tables[0];
-
-                
-               
-
+                comboBoxUserCityName.Items.Add(CitiesTable.Rows[i]["Heb"]);
             }
 
+            comboBoxUserCityName.Items.Insert(0, "בחר עיר");
+            comboBoxUserCityName.SelectedIndex = 0;
+        }
+
+        private void GetFileCities()
+        {
+            DataService dataService = new DataService();
+            CitiesTable = dataService.GetFileCities();
 
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            if (ErrorProviderExtensions.HasErrors(errorProvider1))
+                return;
             UserDetailsView userDetailsView = new UserDetailsView();
             userDetailsView.UserAddress = textBoxUserAddress.Text;
-            userDetailsView.UserCityName = comboBoxUserCityName.SelectedText;
+            userDetailsView.UserCityName = comboBoxUserCityName.Text;
             userDetailsView.UserComments = textBoxusercomments.Text;
             userDetailsView.UserEmail = textBoxUserEmail.Text;
             userDetailsView.UserFirstName = textBoxuserFirstName.Text;
@@ -63,41 +64,128 @@ namespace WindowsFormsAppMT
             userDetailsView.UserPaswrd = textBoxUserPaswrd.Text;
             userDetailsView.UserPhone1 = textBoxUserPhone1.Text;
             userDetailsView.UserPhone2 = textBoxUserPhone2.Text;
-
-
-            using (WebClient client = new WebClient() { Encoding = Encoding.UTF8 })
+            userDetailsView.VeterinarName = textBoxVetName.Text;
+            userDetailsView.VeterinarPhone1 = textBoxVetPhone.Text;
+            userDetailsView.Acceptmessages = checkBoxAccept.Checked;
+            try
             {
-                try
-                {
-                    string userst = JsonConvert.SerializeObject(userDetailsView);
-                    client.UseDefaultCredentials = true;
-                    client.Headers.Add("Content-Type:application/json; charset = utf - 8");
-                    //    client.Headers.Add("Accept:application/json");
-                    var uri = new Uri("http://localhost:53698/api/Users/InsertUserDetails");
-                    var response = client.UploadString(uri, "PUT", userst);
-                    // jsonResponse = response;
-                }
-                catch (WebException ex)
-                {
+                DataService dataService = new DataService();
 
-
-                    // Http Error
-                    if (ex.Status == WebExceptionStatus.ProtocolError)
-                    {
-                        HttpWebResponse wrsp = (HttpWebResponse)ex.Response;
-                        var statusCode = (int)wrsp.StatusCode;
-                        var msg = wrsp.StatusDescription;
-
-                        //  string url = "http://localhost:53698/api/Reservation/UpdateOrdersByManager";
-                        ////  client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
-                        //   client.Headers[HttpRequestHeader.ContentType] = "application/json; charset=utf-8";
-                        //  client.UploadString(url,"POST", userst);
-
-
-
-                    }
-                }
+                dataService.RegisterUser(userDetailsView);
+                //  this.labelError.Text = "נוסף בהצלחה";
+                MessageBox.Show("נוסף בהצלחה");
             }
+            catch (WebException ex)
+            {
+                //using (WebResponse response = ex.Response)
+                //{
+                //    HttpWebResponse httpResponse = (HttpWebResponse)response;
+                //    this.labelError.Text = httpResponse.StatusCode.ToString();
+                //    using (Stream data = response.GetResponseStream())
+                //    using (var reader = new StreamReader(data))
+                //    {
+                //        // string text = reader.ReadToEnd();
+                //        // var x = response.re
+
+                //        string errors = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(reader.ReadToEnd());
+                //        //foreach (string _error in errors)
+                //        //    this.labelError.Text += _error + " ; ";
+                MessageBox.Show(ex.Message);
+                //}
+
+
+                //}
+            }
+
+            //catch (WebException ex)
+            //{
+            //    using (WebResponse response = ex.Response)
+            //    {
+            //        HttpWebResponse httpResponse = (HttpWebResponse)response;
+            //        this.labelError.Text = httpResponse.StatusCode.ToString();
+            //        using (Stream data = response.GetResponseStream())
+            //        using (var reader = new StreamReader(data))
+            //        {
+            //           // string text = reader.ReadToEnd();
+            //           // var x = response.re
+
+            //                List<string> errors = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(reader.ReadToEnd());
+            //            foreach(string _error in errors)
+            //            this.labelError.Text += _error+" ; ";
+            //           // MessageBox.Show()
+            //        }
+
+
+            //    }
         }
+
+        private void textBoxuserFirstName_Validating(object sender, CancelEventArgs e)
+        {
+           ErrorProviderExtensions.checkEmpty(errorProvider1,textBoxuserFirstName, "שם פרטי חובה");
+
+        }
+
+        private void textBoxUserLastName_Validating(object sender, CancelEventArgs e)
+        {
+          ErrorProviderExtensions.checkEmpty(errorProvider1,textBoxUserLastName, "שם משפחה חובה");
+        }
+        private void textBoxUserEmail_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1,textBoxUserEmail, "מייל חובה");
+            ErrorProviderExtensions.regexValidate(errorProvider1,textBoxUserEmail, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", " מייל לא תקין");
+              
+            
+        }
+
+        private void textBoxUserPhone1_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxUserPhone1, "טלפון חובה");
+            ErrorProviderExtensions.regexValidate(errorProvider1, textBoxUserPhone1, @"^0\d{8}$|^0[5,7]{1}\d{8}$", " טלפון לא תקין");
+        }
+        private void textBoxUserPhone2_Validating(object sender, CancelEventArgs e)
+        {
+
+            ErrorProviderExtensions.regexValidate(errorProvider1, textBoxUserPhone2, @"^0\d{8}$|^0[5,7]{1}\d{8}$", " טלפון לא תקין");
+        }
+
+        private void textBoxVetName_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxVetName, "שם וטרינר חובה");
+        }
+
+        private void textBoxVetPhone_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxVetPhone, "טלפון חובה");
+            ErrorProviderExtensions.regexValidate(errorProvider1, textBoxVetPhone, @"^0\d{8}$|^0[5,7]{1}\d{8}$", " טלפון לא תקין");
+        }
+
+        private void textBoxConfirmPass_TextChanged(object sender, EventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxConfirmPass, "סיסמה חובה");
+            if(textBoxConfirmPass.Text!=textBoxUserPaswrd.Text)
+                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, textBoxConfirmPass , "סיסמאות לא זהות");
+        
+            else
+                ErrorProviderExtensions.SetErrorWithCount(errorProvider1, textBoxConfirmPass,   "");
+        }
+
+        private void textBoxUserPaswrd_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxUserPaswrd, "סיסמה חובה");
+        }
+
+
+
+
+        //private int errorCount;
+        //private void SetError(Control c, string message)
+        //{
+        //    errorProvider1.SetError(c, message);
+        //    if (message != "")
+        //        errorCount++;
+        //    else
+        //        errorCount--;
+
+        //}
     }
 }

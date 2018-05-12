@@ -31,9 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemReservations = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemWatchOrders = new System.Windows.Forms.ToolStripMenuItem();
-            this.הוספתהזמנהToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ביטולהזמנהToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ביטולכלבבהזמנהToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemWatchUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.הוספתמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,10 +59,7 @@
             // toolStripMenuItemReservations
             // 
             this.toolStripMenuItemReservations.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemWatchOrders,
-            this.הוספתהזמנהToolStripMenuItem,
-            this.ביטולהזמנהToolStripMenuItem,
-            this.ביטולכלבבהזמנהToolStripMenuItem});
+            this.ToolStripMenuItemWatchOrders});
             this.toolStripMenuItemReservations.Name = "toolStripMenuItemReservations";
             this.toolStripMenuItemReservations.Size = new System.Drawing.Size(85, 20);
             this.toolStripMenuItemReservations.Text = "ניהול הזמנות";
@@ -76,24 +70,6 @@
             this.ToolStripMenuItemWatchOrders.Size = new System.Drawing.Size(172, 22);
             this.ToolStripMenuItemWatchOrders.Text = "צפיה בכל ההזמנות";
             this.ToolStripMenuItemWatchOrders.Click += new System.EventHandler(this.ToolStripMenuItemWatchOrders_Click);
-            // 
-            // הוספתהזמנהToolStripMenuItem
-            // 
-            this.הוספתהזמנהToolStripMenuItem.Name = "הוספתהזמנהToolStripMenuItem";
-            this.הוספתהזמנהToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.הוספתהזמנהToolStripMenuItem.Text = "הוספת הזמנה";
-            // 
-            // ביטולהזמנהToolStripMenuItem
-            // 
-            this.ביטולהזמנהToolStripMenuItem.Name = "ביטולהזמנהToolStripMenuItem";
-            this.ביטולהזמנהToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.ביטולהזמנהToolStripMenuItem.Text = "ביטול הזמנה";
-            // 
-            // ביטולכלבבהזמנהToolStripMenuItem
-            // 
-            this.ביטולכלבבהזמנהToolStripMenuItem.Name = "ביטולכלבבהזמנהToolStripMenuItem";
-            this.ביטולכלבבהזמנהToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.ביטולכלבבהזמנהToolStripMenuItem.Text = "ביטול כלב בהזמנה";
             // 
             // ToolStripMenuItemUsers
             // 
@@ -175,12 +151,9 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemWatchOrders;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemWatchUsers;
         private System.Windows.Forms.ToolStripMenuItem הוספתמשתמשToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem הוספתהזמנהToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ביטולהזמנהToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ביטולמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ניהולכלביםבפנסיוןToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem צפיהToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem מימגיעToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ביטולכלבבהזמנהToolStripMenuItem;
     }
 }
