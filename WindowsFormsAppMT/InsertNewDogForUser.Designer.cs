@@ -173,6 +173,7 @@
             this.textBoxDogName.Name = "textBoxDogName";
             this.textBoxDogName.Size = new System.Drawing.Size(100, 20);
             this.textBoxDogName.TabIndex = 26;
+            this.textBoxDogName.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxDogName_Validating);
             // 
             // textBoxDogShvav
             // 
@@ -188,6 +189,7 @@
             this.comboBoxDogType.Name = "comboBoxDogType";
             this.comboBoxDogType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDogType.TabIndex = 28;
+            this.comboBoxDogType.Validating += new System.ComponentModel.CancelEventHandler(this.comboBoxDogType_Validating);
             // 
             // comboBoxDogGender
             // 

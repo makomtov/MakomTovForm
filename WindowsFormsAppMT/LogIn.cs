@@ -27,21 +27,28 @@ namespace WindowsFormsAppMT
         {
             try
             {
-                if (ErrorProviderExtensions.HasErrors(errorProvider1))
-                    return;
-                loginView = new LoginView();
-                loginView.UserEmail = textBoxEmail.Text;
-                loginView.UserPassword = textBoxPassWord.Text;
-                token = DataService.GetToken("http://localhost:53698/", loginView.UserEmail, loginView.UserPassword);
+                //if (ErrorProviderExtensions.HasErrors(errorProvider1))
+                //    return;
+                this.ValidateChildren();
+               if (ErrorProviderExtensions.HasErrors(errorProvider1))
+                        return;
 
-                DataService dataService = new DataService();
-                UserDetailsView userDetailsView = dataService.GetUser(loginView);
-               
-                //if (userDetailsView != null)
-                //    if(userDetailsView.UserEmail=="liron248@gmail.com")
-                //{
-                Form1 form1 = new Form1(loginView);
+                    loginView = new LoginView();
+                    loginView.UserEmail = textBoxEmail.Text;
+                    loginView.UserPassword = textBoxPassWord.Text;
+                    token = DataService.GetToken(loginView.UserEmail, loginView.UserPassword);
+
+                    DataService dataService = new DataService();
+                    UserDetailsView userDetailsView = dataService.GetUser(loginView);
+
+                    //if (userDetailsView != null)
+                    //    if(userDetailsView.UserEmail=="liron248@gmail.com")
+                    //{
+                    this.Hide();
+                    Form1 form1 = new Form1(loginView);
                     form1.Show();
+               
+                   
                 //}
                 //    else
                 //    {
@@ -51,15 +58,15 @@ namespace WindowsFormsAppMT
             }
             catch (WebException ex)
             {
-                LogIn logIn = new LogIn();
-                logIn.Show();
+                //LogIn logIn = new LogIn();
+                //logIn.Show();
                 MessageBox.Show(ex.Message);
                     }
 
             catch (Exception ex)
             {
-                LogIn logIn = new LogIn();
-                logIn.Show();
+                //LogIn logIn = new LogIn();
+                //logIn.Show();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -69,12 +76,15 @@ namespace WindowsFormsAppMT
             {
                 ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxEmail, "מייל חובה");
                 ErrorProviderExtensions.regexValidate(errorProvider1, textBoxEmail, @"([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)", " מייל לא תקין");
-
+            //if (ErrorProviderExtensions.HasErrors(errorProvider1))
+            //    e.Cancel = true;
 
             }
         private void textBoxPassWord_Validating(object sender, CancelEventArgs e)
         {
             ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxPassWord, "סיסמה חובה");
+            //if (ErrorProviderExtensions.HasErrors(errorProvider1))
+            //    e.Cancel = true;
         }
 
     }

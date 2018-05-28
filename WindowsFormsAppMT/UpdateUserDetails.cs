@@ -24,13 +24,14 @@ namespace WindowsFormsAppMT
             textBoxUserEmail.Text = userDetailsView.UserEmail;
             textBoxuserFirstName.Text = userDetailsView.UserFirstName;
             textBoxUserLastName.Text = userDetailsView.UserLastName;
-          
             textBoxUserPhone1.Text = userDetailsView.UserPhone1;
             textBoxUserPhone2.Text = userDetailsView.UserPhone2;
             textBoxVetName.Text = userDetailsView.VeterinarName;
             textBoxVetPhone.Text = userDetailsView.VeterinarPhone1;
             textBoxusercomments.Text = userDetailsView.UserComments;
-            comboBoxUserCityName.Text = userDetailsView.UserCityName;
+            comboBoxUserCityName.Text = userDetailsView.UserCity;
+            checkBoxAccept.Checked = userDetailsView.Acceptmessages;
+
             GetFileCities();
             populateCBCities();
 
@@ -48,17 +49,18 @@ namespace WindowsFormsAppMT
 
                 comboBoxUserCityName.Items.Add(CitiesTable.Rows[i]["Heb"]);
             }
-            comboBoxUserCityName.Text = UuserDetailsView.UserCityName;
+            comboBoxUserCityName.Text = UuserDetailsView.UserCity;
             //comboBoxUserCityName.Items.Insert(0, "בחר עיר");
             //comboBoxUserCityName.SelectedIndex = 0;
         }
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            this.ValidateChildren();
             if (ErrorProviderExtensions.HasErrors(errorProvider1))
                 return;
-            
+                       
             UuserDetailsView.UserAddress = textBoxUserAddress.Text;
-            UuserDetailsView.UserCityName = comboBoxUserCityName.Text;
+            UuserDetailsView.UserCity = comboBoxUserCityName.Text;
             UuserDetailsView.UserComments = textBoxusercomments.Text;
             UuserDetailsView.UserEmail = textBoxUserEmail.Text;
             UuserDetailsView.UserFirstName = textBoxuserFirstName.Text;
@@ -68,14 +70,18 @@ namespace WindowsFormsAppMT
             UuserDetailsView.UserPhone2 = textBoxUserPhone2.Text;
             UuserDetailsView.VeterinarName = textBoxVetName.Text;
             UuserDetailsView.VeterinarPhone1 = textBoxVetPhone.Text;
+            UuserDetailsView.Acceptmessages = checkBoxAccept.Checked;
+            UuserDetailsView.UserComments = textBoxusercomments.Text;
             
             try
             {
                 DataService dataService = new DataService();
 
                 dataService.UpdateUser(UuserDetailsView);
-               
-                MessageBox.Show("עודכן בהצלחה");
+                this.Hide();
+                Form1 f1 = new Form1(LogIn.loginView);
+                f1.Show();
+                //MessageBox.Show("עודכן בהצלחה");
             }
             catch (WebException ex)
             {

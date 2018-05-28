@@ -45,13 +45,15 @@ namespace WindowsFormsAppMT
             else
                 ErrorProviderExtensions.SetErrorWithCount(ep, textBox, "");
         }
-
+        
+       
         public static void regexValidate(this ErrorProvider ep,TextBox textBox, string regex, string message)
         {
             Regex regEmail = new Regex(regex);
             if (!regEmail.IsMatch(textBox.Text))
             {
                 ErrorProviderExtensions.SetErrorWithCount(ep, textBox, message);
+                
             }
             else
             {

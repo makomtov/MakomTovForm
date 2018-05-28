@@ -96,5 +96,17 @@ namespace WindowsFormsAppMT
             }
 
         }
+
+      
+
+        private void TextBoxDogName_Validating(object sender, CancelEventArgs e)
+        {
+            ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxDogName, "שם כלב חובה");
+        }
+
+        private void comboBoxDogType_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

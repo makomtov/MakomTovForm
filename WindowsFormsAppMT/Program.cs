@@ -16,7 +16,7 @@ namespace WindowsFormsAppMT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Rooms());
+            Application.Run(new LogIn());
         }
     }
 }

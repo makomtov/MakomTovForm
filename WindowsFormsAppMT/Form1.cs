@@ -38,7 +38,7 @@ namespace WindowsFormsAppMT
         }
 
         private string userID;
-        List<UserDetailsView> listUsers;
+       public  List<UserDetailsView> listUsers;
        
         public Form1(LoginView loginView):base("Form1")
         {
@@ -141,7 +141,7 @@ namespace WindowsFormsAppMT
                     userDetailsView.UserLastName = row.Cells["UserLastName"].Value.ToString();
                     userDetailsView.UserFirstName = row.Cells["UserFirstName"].Value.ToString();
                     userDetailsView.UserEmail = row.Cells["UserEmail"].Value.ToString();
-                    this.Hide();
+                   // this.Hide();
 
                     reservations f2 = new reservations(userDetailsView); //this is the change, code for redirect
 
@@ -157,7 +157,7 @@ namespace WindowsFormsAppMT
             if (senderGrid.Columns[e.ColumnIndex].Name == "UserEmail" && e.RowIndex >= 0)
             {
                 string mailto = row.Cells["UserEmail"].Value.ToString();
-                this.Hide();
+                //this.Hide();
                 MailForm mailForm = new MailForm(mailto.Trim());
                 mailForm.Show();
             }
@@ -181,7 +181,7 @@ namespace WindowsFormsAppMT
                 userDetailsView.UserLastName = row.Cells["UserLastName"].Value.ToString();
                 userDetailsView.UserFirstName = row.Cells["UserFirstName"].Value.ToString();
                 userDetailsView.UserEmail = row.Cells["UserEmail"].Value.ToString();
-                this.Hide();
+                //this.Hide();
 
                 CreateOrder createOrder = new CreateOrder(userDetailsView); //this is the change, code for redirect
 
@@ -198,8 +198,8 @@ namespace WindowsFormsAppMT
                 UserDetailsView userDetailsView;
                 int UserID =int.Parse(row.Cells["User"].Value.ToString());
                 userDetailsView = FindUserInList(UserID, listUsers);
+                this.Hide();
                 UpdateUserDetails updateUserDetails = new UpdateUserDetails(userDetailsView);
-                this.Close();
                 updateUserDetails.Show();
 
             }
@@ -225,7 +225,7 @@ namespace WindowsFormsAppMT
             for (int row = 0; row < dataGridView1.Rows.Count ; row++)
             {
                 DataGridViewRow viewRow = dataGridView1.Rows[row];
-                viewRow.Cells["useraddress"].Value = listUsers[row].UserAddress + " " + listUsers[row].UserCityName;
+                viewRow.Cells["useraddress"].Value = listUsers[row].UserAddress + " " + listUsers[row].UserCity;
                 viewRow.Cells["UserPhones"].Value = listUsers[row].UserPhone1;
                 if(listUsers[row].UserPhone2!="")
                 { viewRow.Cells["UserPhones"].Value +=" , "+ listUsers[row].UserPhone2; }

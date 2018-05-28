@@ -53,6 +53,8 @@
             this.labelVetPhone = new System.Windows.Forms.Label();
             this.textBoxVetPhone = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxAccept = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,10 +251,32 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(488, 494);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "אני מסכים לקבל דואר מהכלביה";
+            // 
+            // checkBoxAccept
+            // 
+            this.checkBoxAccept.AutoSize = true;
+            this.checkBoxAccept.Checked = true;
+            this.checkBoxAccept.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAccept.Location = new System.Drawing.Point(437, 493);
+            this.checkBoxAccept.Name = "checkBoxAccept";
+            this.checkBoxAccept.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAccept.TabIndex = 30;
+            this.checkBoxAccept.UseVisualStyleBackColor = true;
+            // 
             // UpdateUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(711, 644);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkBoxAccept);
             this.Controls.Add(this.textBoxVetPhone);
             this.Controls.Add(this.labelVetPhone);
             this.Controls.Add(this.textBoxVetName);
@@ -299,6 +323,8 @@
             this.Controls.SetChildIndex(this.textBoxVetName, 0);
             this.Controls.SetChildIndex(this.labelVetPhone, 0);
             this.Controls.SetChildIndex(this.textBoxVetPhone, 0);
+            this.Controls.SetChildIndex(this.checkBoxAccept, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -330,6 +356,8 @@
         private System.Windows.Forms.Label labelVetPhone;
         private System.Windows.Forms.TextBox textBoxVetPhone;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxAccept;
     }
 
 

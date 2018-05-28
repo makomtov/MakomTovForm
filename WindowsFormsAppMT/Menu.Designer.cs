@@ -36,8 +36,6 @@
             this.הוספתמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ביטולמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ניהולכלביםבפנסיוןToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.צפיהToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.מימגיעToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,25 +102,10 @@
             // 
             // ניהולכלביםבפנסיוןToolStripMenuItem
             // 
-            this.ניהולכלביםבפנסיוןToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.צפיהToolStripMenuItem,
-            this.מימגיעToolStripMenuItem});
             this.ניהולכלביםבפנסיוןToolStripMenuItem.Name = "ניהולכלביםבפנסיוןToolStripMenuItem";
             this.ניהולכלביםבפנסיוןToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.ניהולכלביםבפנסיוןToolStripMenuItem.Text = "ניהול כלבים בפנסיון";
-            // 
-            // צפיהToolStripMenuItem
-            // 
-            this.צפיהToolStripMenuItem.Name = "צפיהToolStripMenuItem";
-            this.צפיהToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.צפיהToolStripMenuItem.Text = "מי אצלינו";
-            this.צפיהToolStripMenuItem.Click += new System.EventHandler(this.צפיהToolStripMenuItem_Click);
-            // 
-            // מימגיעToolStripMenuItem
-            // 
-            this.מימגיעToolStripMenuItem.Name = "מימגיעToolStripMenuItem";
-            this.מימגיעToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.מימגיעToolStripMenuItem.Text = "מי מגיע בקרוב ";
+            this.ניהולכלביםבפנסיוןToolStripMenuItem.Click += new System.EventHandler(this.ניהולכלביםבפנסיוןToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -153,7 +136,5 @@
         private System.Windows.Forms.ToolStripMenuItem הוספתמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ביטולמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ניהולכלביםבפנסיוןToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem צפיהToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem מימגיעToolStripMenuItem;
     }
 }

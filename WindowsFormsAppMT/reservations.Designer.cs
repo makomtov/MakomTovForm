@@ -40,6 +40,19 @@ namespace WindowsFormsAppMT
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelUser = new System.Windows.Forms.Label();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FromDate = new WindowsFormsAppMT.CalendarColumn();
+            this.ShiftNumberFrom = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ToDate = new WindowsFormsAppMT.CalendarColumn();
+            this.ShiftNumberTo = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderconfirmationNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogsInOrder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.OrderStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.dataGridViewDogsInOrder = new System.Windows.Forms.DataGridView();
             this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,19 +77,6 @@ namespace WindowsFormsAppMT
             this.listViewStatus = new System.Windows.Forms.ListView();
             this.StatusName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBoxChooseDate = new System.Windows.Forms.ComboBox();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FromDate = new WindowsFormsAppMT.CalendarColumn();
-            this.ShiftNumberFrom = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ToDate = new WindowsFormsAppMT.CalendarColumn();
-            this.ShiftNumberTo = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderconfirmationNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogsInOrder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.OrderStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogsInOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatus)).BeginInit();
@@ -126,6 +126,117 @@ namespace WindowsFormsAppMT
             this.dataGridViewOrders.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewOrders_DataBindingComplete);
             this.dataGridViewOrders.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             this.dataGridViewOrders.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_RowEnter);
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "Name";
+            this.UserName.HeaderText = "שם המזמין";
+            this.UserName.Name = "UserName";
+            this.UserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // OrderNumber
+            // 
+            this.OrderNumber.DataPropertyName = "OrderNumber";
+            this.OrderNumber.FillWeight = 147.2626F;
+            this.OrderNumber.HeaderText = "מספר הזמנה";
+            this.OrderNumber.Name = "OrderNumber";
+            this.OrderNumber.ReadOnly = true;
+            // 
+            // OrderDate
+            // 
+            this.OrderDate.DataPropertyName = "OrderDate";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.OrderDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.OrderDate.FillWeight = 96.33428F;
+            this.OrderDate.HeaderText = "תאריך הזמנה";
+            this.OrderDate.Name = "OrderDate";
+            // 
+            // FromDate
+            // 
+            this.FromDate.DataPropertyName = "FromDate";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "1";
+            this.FromDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FromDate.HeaderText = "מתאריך";
+            this.FromDate.Name = "FromDate";
+            this.FromDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FromDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ShiftNumberFrom
+            // 
+            dataGridViewCellStyle3.NullValue = "1";
+            this.ShiftNumberFrom.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ShiftNumberFrom.HeaderText = "משמרת הגעה";
+            this.ShiftNumberFrom.Name = "ShiftNumberFrom";
+            this.ShiftNumberFrom.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ShiftNumberFrom.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ToDate
+            // 
+            this.ToDate.DataPropertyName = "ToDate";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = "1";
+            this.ToDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ToDate.HeaderText = "עד תאריך";
+            this.ToDate.Name = "ToDate";
+            this.ToDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ToDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ShiftNumberTo
+            // 
+            dataGridViewCellStyle5.NullValue = "1";
+            this.ShiftNumberTo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ShiftNumberTo.HeaderText = "משמרת הוצאה";
+            this.ShiftNumberTo.Name = "ShiftNumberTo";
+            this.ShiftNumberTo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ShiftNumberTo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // OrderPrice
+            // 
+            this.OrderPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.OrderPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            this.OrderPrice.FillWeight = 96.33428F;
+            this.OrderPrice.HeaderText = "מחיר";
+            this.OrderPrice.Name = "OrderPrice";
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.Discount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Discount.HeaderText = "הנחה מיוחדת";
+            this.Discount.Name = "Discount";
+            // 
+            // OrderconfirmationNumber
+            // 
+            this.OrderconfirmationNumber.DataPropertyName = "OrderconfirmationNumber";
+            this.OrderconfirmationNumber.FillWeight = 96.33428F;
+            this.OrderconfirmationNumber.HeaderText = "מספר אישור תשלום";
+            this.OrderconfirmationNumber.Name = "OrderconfirmationNumber";
+            // 
+            // ManagerComments
+            // 
+            this.ManagerComments.DataPropertyName = "ManagerComments";
+            this.ManagerComments.HeaderText = "הערות";
+            this.ManagerComments.Name = "ManagerComments";
+            // 
+            // DogsInOrder
+            // 
+            this.DogsInOrder.FillWeight = 71.06599F;
+            this.DogsInOrder.HeaderText = "צפה בכלבים";
+            this.DogsInOrder.Name = "DogsInOrder";
+            this.DogsInOrder.Text = "צפה";
+            // 
+            // OrderStatus
+            // 
+            this.OrderStatus.FillWeight = 96.33428F;
+            this.OrderStatus.HeaderText = "מצב הזמנה";
+            this.OrderStatus.MaxDropDownItems = 10;
+            this.OrderStatus.Name = "OrderStatus";
             // 
             // buttonUpdate
             // 
@@ -337,117 +448,6 @@ namespace WindowsFormsAppMT
             this.comboBoxChooseDate.TabIndex = 14;
             this.comboBoxChooseDate.Text = "ללא תאריך";
             // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "Name";
-            this.UserName.HeaderText = "שם המזמין";
-            this.UserName.Name = "UserName";
-            this.UserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // OrderNumber
-            // 
-            this.OrderNumber.DataPropertyName = "OrderNumber";
-            this.OrderNumber.FillWeight = 147.2626F;
-            this.OrderNumber.HeaderText = "מספר הזמנה";
-            this.OrderNumber.Name = "OrderNumber";
-            this.OrderNumber.ReadOnly = true;
-            // 
-            // OrderDate
-            // 
-            this.OrderDate.DataPropertyName = "OrderDate";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.OrderDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.OrderDate.FillWeight = 96.33428F;
-            this.OrderDate.HeaderText = "תאריך הזמנה";
-            this.OrderDate.Name = "OrderDate";
-            // 
-            // FromDate
-            // 
-            this.FromDate.DataPropertyName = "FromDate";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "1";
-            this.FromDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FromDate.HeaderText = "מתאריך";
-            this.FromDate.Name = "FromDate";
-            this.FromDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FromDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ShiftNumberFrom
-            // 
-            dataGridViewCellStyle3.NullValue = "1";
-            this.ShiftNumberFrom.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ShiftNumberFrom.HeaderText = "משמרת הגעה";
-            this.ShiftNumberFrom.Name = "ShiftNumberFrom";
-            this.ShiftNumberFrom.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ShiftNumberFrom.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ToDate
-            // 
-            this.ToDate.DataPropertyName = "ToDate";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = "1";
-            this.ToDate.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ToDate.HeaderText = "עד תאריך";
-            this.ToDate.Name = "ToDate";
-            this.ToDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ToDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ShiftNumberTo
-            // 
-            dataGridViewCellStyle5.NullValue = "1";
-            this.ShiftNumberTo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ShiftNumberTo.HeaderText = "משמרת הוצאה";
-            this.ShiftNumberTo.Name = "ShiftNumberTo";
-            this.ShiftNumberTo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ShiftNumberTo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // OrderPrice
-            // 
-            this.OrderPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.OrderPrice.DefaultCellStyle = dataGridViewCellStyle6;
-            this.OrderPrice.FillWeight = 96.33428F;
-            this.OrderPrice.HeaderText = "מחיר";
-            this.OrderPrice.Name = "OrderPrice";
-            // 
-            // Discount
-            // 
-            this.Discount.DataPropertyName = "Discount";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.Discount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Discount.HeaderText = "הנחה מיוחדת";
-            this.Discount.Name = "Discount";
-            // 
-            // OrderconfirmationNumber
-            // 
-            this.OrderconfirmationNumber.DataPropertyName = "OrderconfirmationNumber";
-            this.OrderconfirmationNumber.FillWeight = 96.33428F;
-            this.OrderconfirmationNumber.HeaderText = "מספר אישור תשלום";
-            this.OrderconfirmationNumber.Name = "OrderconfirmationNumber";
-            // 
-            // ManagerComments
-            // 
-            this.ManagerComments.DataPropertyName = "ManagerComments";
-            this.ManagerComments.HeaderText = "הערות";
-            this.ManagerComments.Name = "ManagerComments";
-            // 
-            // DogsInOrder
-            // 
-            this.DogsInOrder.FillWeight = 71.06599F;
-            this.DogsInOrder.HeaderText = "צפה בכלבים";
-            this.DogsInOrder.Name = "DogsInOrder";
-            this.DogsInOrder.Text = "צפה";
-            // 
-            // OrderStatus
-            // 
-            this.OrderStatus.FillWeight = 96.33428F;
-            this.OrderStatus.HeaderText = "מצב הזמנה";
-            this.OrderStatus.MaxDropDownItems = 10;
-            this.OrderStatus.Name = "OrderStatus";
-            // 
             // reservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,7 +470,6 @@ namespace WindowsFormsAppMT
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "הזמנות";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.reservations_Load);
             this.Controls.SetChildIndex(this.menuStrip1, 0);
             this.Controls.SetChildIndex(this.labelUser, 0);

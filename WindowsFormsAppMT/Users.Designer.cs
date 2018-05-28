@@ -29,36 +29,32 @@
         private void InitializeComponent()
         {
             this.dataGridViewContacts = new System.Windows.Forms.DataGridView();
-            this.buttonIshur = new System.Windows.Forms.Button();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Choose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.buttonIshur = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewContacts
             // 
+            this.dataGridViewContacts.AllowUserToAddRows = false;
+            this.dataGridViewContacts.AllowUserToDeleteRows = false;
+            this.dataGridViewContacts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewContacts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewContacts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
             this.UserEmail,
             this.Choose});
+            this.dataGridViewContacts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridViewContacts.Location = new System.Drawing.Point(12, 70);
             this.dataGridViewContacts.Name = "dataGridViewContacts";
+            this.dataGridViewContacts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridViewContacts.Size = new System.Drawing.Size(293, 150);
             this.dataGridViewContacts.TabIndex = 0;
             this.dataGridViewContacts.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContacts_CellValueChanged);
             this.dataGridViewContacts.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewContacts_CurrentCellDirtyStateChanged);
-            // 
-            // buttonIshur
-            // 
-            this.buttonIshur.Location = new System.Drawing.Point(230, 12);
-            this.buttonIshur.Name = "buttonIshur";
-            this.buttonIshur.Size = new System.Drawing.Size(75, 23);
-            this.buttonIshur.TabIndex = 1;
-            this.buttonIshur.Text = "אשר";
-            this.buttonIshur.UseVisualStyleBackColor = true;
-            this.buttonIshur.Click += new System.EventHandler(this.buttonIshur_Click);
             // 
             // UserName
             // 
@@ -78,7 +74,16 @@
             // 
             this.Choose.HeaderText = "בחר";
             this.Choose.Name = "Choose";
-            this.Choose.Width = 50;
+            // 
+            // buttonIshur
+            // 
+            this.buttonIshur.Location = new System.Drawing.Point(230, 12);
+            this.buttonIshur.Name = "buttonIshur";
+            this.buttonIshur.Size = new System.Drawing.Size(75, 23);
+            this.buttonIshur.TabIndex = 1;
+            this.buttonIshur.Text = "אשר";
+            this.buttonIshur.UseVisualStyleBackColor = true;
+            this.buttonIshur.Click += new System.EventHandler(this.buttonIshur_Click);
             // 
             // Users
             // 

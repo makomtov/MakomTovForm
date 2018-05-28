@@ -245,7 +245,17 @@ namespace WindowsFormsAppMT
                 {
                     DogDetailsView dog = FindDogInList(int.Parse(dataGridViewDogs.Rows[e.RowIndex].Cells["DogNumber"].Value.ToString()), dogsForManagerView.UserDogs);
                     //        int ind = CheckinList(listOrder, int.Parse(dataGridViewOrders.Rows[e.RowIndex].Cells["OrderNumber"].Value.ToString()));
-                    
+
+                    if (e.ColumnIndex == 12)  //comments-'Column index=14'
+                    {
+                       // if (dataGridViewDogs.Rows[e.RowIndex].Cells["ManagerComments"].Value != null)
+                            ((DogDetailsViewManager)dog).DogDig = bool.Parse(dataGridViewDogs.Rows[e.RowIndex].Cells["DogDig"].Value.ToString());
+                    }
+                    if (e.ColumnIndex == 13)  //comments-'Column index=14'
+                    {
+                       // if (dataGridViewDogs.Rows[e.RowIndex].Cells["ManagerComments"].Value != null)
+                            ((DogDetailsViewManager)dog).DogJump =bool.Parse( dataGridViewDogs.Rows[e.RowIndex].Cells["DogJump"].Value.ToString());
+                    }
                     if (e.ColumnIndex == 14)  //comments-'Column index=14'
                     {
                         if (dataGridViewDogs.Rows[e.RowIndex].Cells["ManagerComments"].Value != null)

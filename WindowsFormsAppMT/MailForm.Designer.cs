@@ -62,7 +62,10 @@
             // 
             // textBoxTo
             // 
+            this.textBoxTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.textBoxTo.Location = new System.Drawing.Point(565, 66);
+            this.textBoxTo.Multiline = true;
             this.textBoxTo.Name = "textBoxTo";
             this.textBoxTo.Size = new System.Drawing.Size(418, 20);
             this.textBoxTo.TabIndex = 3;

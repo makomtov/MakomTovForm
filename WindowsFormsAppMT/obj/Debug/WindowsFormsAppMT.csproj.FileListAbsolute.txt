@@ -110,3 +110,4 @@ C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\Microsoft.Owin.Security.Cooki
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.UpdateUserDetails.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.InsertNewDogForUser.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.Rooms.resources
+C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.ReservationDetails.resources

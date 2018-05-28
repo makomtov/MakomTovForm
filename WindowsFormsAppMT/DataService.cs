@@ -19,7 +19,9 @@ namespace WindowsFormsAppMT
         {
             
         }
-        string URI = "http://localhost:53698/api/";
+        // const string URI = "http://10.100.102.18:81/api/";
+        const string URI = "http://localhost:53698/api/";
+
         /// <summary>
         /// שליפת כלבים של משתמש
         /// </summary>
@@ -30,7 +32,7 @@ namespace WindowsFormsAppMT
         {
             string ans = "";
             DogsForManagerView userDogs = new DogsForManagerView();
-            URI += "Users/GetUserDogsByManager";
+           string uri= URI + "Users/GetUserDogsByManager";
             try
             {
                 List<OrderDetailsViewManager> filesinformation = new List<OrderDetailsViewManager>();
@@ -49,7 +51,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                    
-                    var response =  client.PostAsync(URI, content).Result;
+                    var response =  client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans= response.Content.ReadAsStringAsync().Result;
@@ -90,7 +92,7 @@ namespace WindowsFormsAppMT
             {
 
                 List<UserDetailsView> filesinformation = new List<UserDetailsView>();
-                URI += "Users";
+                string uri = URI +  "Users";
               
                 // string response = CallApi(URI, token,null);
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
@@ -106,7 +108,7 @@ namespace WindowsFormsAppMT
 
                     //var encodedContent = new FormUrlEncodedContent(parameters);
                     //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
-                    var response = client.GetAsync(URI).Result;
+                    var response = client.GetAsync(uri).Result;
 
 
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
@@ -132,16 +134,88 @@ namespace WindowsFormsAppMT
         public List<OrderDetailsViewManager> GetFileOrderList(LoginView loginView)
         {
             List<OrderDetailsViewManager> filesinformation = new List<OrderDetailsViewManager>();
-            URI += "Reservation/GetAllOrdersAndDogsManager";
+            string uri = URI + "Reservation/GetAllOrdersAndDogsManager";
           
            
-            string response = CallApi(URI, LogIn.token,null);
+            string response = CallApi(uri, LogIn.token,null);
             filesinformation = JsonConvert.DeserializeObject<List<OrderDetailsViewManager>>(response);
             return filesinformation;
 
 
 
         }
+
+        /// <summary>
+        /// שליפת כל תפוסת החדרים
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <param name="toDate"></param>
+        /// <returns></returns>
+        public List<RoomsDetailsView> GetRoomsSetting(Rooms.Dates dates)
+        {
+            
+                List<RoomsDetailsView> filesinformation = new List<RoomsDetailsView>();
+            string uri = URI + "Rooms/GetRoomsSetting";
+
+
+                string ans = "";
+                try
+                {
+                List<RoomsDetailsView> list = null;
+                // string jsonContent ="{"+'"'+"fromDate"+'"'+":2018-05-15T16:07:26.9823199+03:00"+","+'"'+"toDate"+'"'+":2018-05-15T16:07:26.9833229+03:00}";
+
+                string jsonContent = JsonConvert.SerializeObject(dates);
+                ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+                using (var client = new HttpClient())
+                {
+                    if (!string.IsNullOrWhiteSpace(LogIn.token))
+                    {
+                        var t = JsonConvert.DeserializeObject<Token>(LogIn.token);
+
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                    }
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+
+                    var response = client.PostAsync(uri, content).Result;
+                    //var response = client.GetAsync(url).Result;
+                    
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        ans = response.Content.ReadAsStringAsync().Result;
+                        list = JsonConvert.DeserializeObject<List<RoomsDetailsView>>(ans);
+                        
+                    }
+                    else
+                    {
+                        ans = response.ReasonPhrase;
+                        
+                    }
+                    //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+
+
+                    //ans = JsonConvert.DeserializeObject<DogsForManagerView>(response.Result.Content.);
+                    //else
+                    //    ans = response.ReasonPhrase;
+
+
+
+                }
+                return list;
+            }
+
+
+
+                catch (WebException ex)
+                {
+
+                    throw ex;
+                }
+            }
+            
+           
+
         /// <summary>
         /// שליפת כל הסטטוסים של הזמנה
         /// </summary>
@@ -149,9 +223,9 @@ namespace WindowsFormsAppMT
         public List<StatusView> GetFileOrderStaus(LoginView loginView)
         {
             List<StatusView> filesinformation = new List<StatusView>();
-            URI += "Reservation/OrderStatusList";
+            string uri = URI + "Reservation/OrderStatusList";
            
-            string response = CallApi(URI, LogIn.token, null);
+            string response = CallApi(uri, LogIn.token, null);
             filesinformation = JsonConvert.DeserializeObject<List<StatusView>>(response);
             return filesinformation;
 
@@ -165,9 +239,9 @@ namespace WindowsFormsAppMT
         public List<ShiftView> GetOpenHours()
         {
             List<ShiftView> filesinformation = new List<ShiftView>();
-            URI += "Reservation/OpenHoursList";
+            string uri = URI + "Reservation/OpenHoursList";
 
-            string response = CallApi(URI, LogIn.token, null);
+            string response = CallApi(uri, LogIn.token, null);
             filesinformation = JsonConvert.DeserializeObject<List<ShiftView>>(response);
             return filesinformation;
 
@@ -180,8 +254,8 @@ namespace WindowsFormsAppMT
         public void UpdateUserResarvations(List<OrderDetailsViewManager> listOrder)
 
         {
-            
-            URI += "Reservation/UpdateOrdersByManager";
+
+            string uri = URI + "Reservation/UpdateOrdersByManager";
             string ans = "";
             try
             {
@@ -201,7 +275,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PutAsync(URI, content).Result;
+                    var response = client.PutAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -236,9 +310,9 @@ namespace WindowsFormsAppMT
         public int InsertUserResarvations(OrderDetailsView order)
 
         {
-            
+
             // POST a JSON string
-            URI += "Reservation/CreateOrder";
+            string uri = URI + "Reservation/CreateOrder";
             string ans = "";
             
             try
@@ -259,7 +333,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -272,7 +346,7 @@ namespace WindowsFormsAppMT
                     //else
                     //    ans = response.ReasonPhrase;
                 }
-                if (ans != "Unauthorized")
+                if (ans == "OK")
                 {
                     return JsonConvert.DeserializeObject<int>(ans);
                     
@@ -297,7 +371,7 @@ namespace WindowsFormsAppMT
         public void UpdateUserDogs(DogsForManagerView userMDogs)
 
         {
-            URI += "Users/UpdateUserDogsByManager";
+            string uri = URI + "Users/UpdateUserDogsByManager";
             string ans = "";
 
             try
@@ -318,7 +392,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -345,10 +419,12 @@ namespace WindowsFormsAppMT
             }
         }
 
-     public   static string GetToken(string url, string userName, string password)
+     public   static string GetToken(string userName, string password)
         {
             try
             {
+               int ind= URI.IndexOf("/a");
+                string url = URI.Substring(0, ind);
                 var pairs = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>( "grant_type", "password" ),
@@ -359,7 +435,7 @@ namespace WindowsFormsAppMT
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
                 using (var client = new HttpClient())
                 {
-                    var response = client.PostAsync(url + "Token", content).Result;
+                    var response = client.PostAsync(url + "/Token", content).Result;
                     if (response.StatusCode != HttpStatusCode.OK)
                         throw new Exception("אינך מורשה להכנס לאתר");
                     return response.Content.ReadAsStringAsync().Result;
@@ -398,11 +474,11 @@ namespace WindowsFormsAppMT
         public UserDetailsView GetUser (LoginView loginView)
         {
 
-            
 
-              //  UserDetailsView userDetailsView = null;
-                // POST a JSON string
-                URI += "Users/GetUser";
+
+            //  UserDetailsView userDetailsView = null;
+            // POST a JSON string
+            string uri = URI + "Users/GetUser";
 
 
                
@@ -427,7 +503,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -513,7 +589,7 @@ namespace WindowsFormsAppMT
         public void UpdateUser(UserDetailsView userDetailsView)
         {
 
-            URI += "Users/UpdateUserDetails";
+            string uri = URI + "Users/UpdateUserDetails";
             string ans = "";
 
             try
@@ -534,9 +610,9 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
-                    if (response.StatusCode != HttpStatusCode.Unauthorized)
+                    if (response.StatusCode != HttpStatusCode.OK)
                         ans = response.Content.ReadAsStringAsync().Result;
                     else
                         ans = response.ReasonPhrase;
@@ -547,7 +623,7 @@ namespace WindowsFormsAppMT
                     //else
                     //    ans = response.ReasonPhrase;
                 }
-                if (ans == "Unauthorized")
+                if (ans != "OK")
                 {
 
                     throw new WebException(ans);
@@ -567,7 +643,7 @@ namespace WindowsFormsAppMT
         public void RegisterUser(UserDetailsView userDetailsView)
         {
             // POST a JSON string
-            URI += "Users/InsertUserDetailsByManager";
+            string uri = URI + "Users/InsertUserDetailsByManager";
             string ans = "";
 
             try
@@ -588,7 +664,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -622,7 +698,7 @@ namespace WindowsFormsAppMT
         public void AddOneUserDog(DogDetailsView dogDetailsView)
         {
             // POST a JSON string
-            URI += "Users/AddOneUserDog";
+            string uri = URI + "Users/AddOneUserDog";
             string ans = "";
 
             try
@@ -643,7 +719,7 @@ namespace WindowsFormsAppMT
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
 
-                    var response = client.PostAsync(URI, content).Result;
+                    var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
                     if (response.StatusCode != HttpStatusCode.Unauthorized)
                         ans = response.Content.ReadAsStringAsync().Result;
@@ -798,11 +874,11 @@ namespace WindowsFormsAppMT
         public DataTable GetFileCities()
         {
 
-            URI += "XML/cities";
+            string uri = URI + "XML/cities";
             using (WebClient client = new WebClient() { Encoding = Encoding.UTF8 })
             {
 
-                var json = client.DownloadString(URI);
+                var json = client.DownloadString(uri);
                 //  CitiesTable = JsonConvert.DeserializeObject<DataTable>(json.ToString());
                 //  CitiesTable = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
                 DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
@@ -819,11 +895,11 @@ namespace WindowsFormsAppMT
         public DataTable GetFileDogTypes()
         {
 
-            URI += "Xml/DogsTypes";
+            string uri = URI + "Xml/DogsTypes";
             using (WebClient client = new WebClient() { Encoding = Encoding.UTF8 })
             {
 
-                var json = client.DownloadString(URI);
+                var json = client.DownloadString(uri);
                 //  CitiesTable = JsonConvert.DeserializeObject<DataTable>(json.ToString());
                 //  CitiesTable = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
                 DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
@@ -835,6 +911,64 @@ namespace WindowsFormsAppMT
 
             }
 
+        }
+        /// <summary>
+        /// עדכון חדרים 
+        /// </summary>
+        /// <param name="userDetailsView"></param>
+
+        public void UpdateRoomsDetailsAndSetting(List<RoomsDetailsView> roomsDetailsView)
+        {
+
+            string uri = URI + "Rooms/UpdateRoomsDetailsAndSetting";
+            string ans = "";
+            try
+            {
+            //    roomsDetailsView.RemoveAt(0);
+            string jsonContent = JsonConvert.SerializeObject(roomsDetailsView);
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            using (var client = new HttpClient())
+            {
+                if (!string.IsNullOrWhiteSpace(LogIn.token))
+                {
+                    var t = JsonConvert.DeserializeObject<Token>(LogIn.token);
+
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                }
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+
+                var response = client.PostAsync(uri, content).Result;
+                    
+                    if (response.StatusCode == HttpStatusCode.OK)
+                        ans = response.Content.ReadAsStringAsync().Result;
+                    else
+                        ans = response.ReasonPhrase;
+                    //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+
+
+                    //ans = JsonConvert.DeserializeObject<DogsForManagerView>(response.Result.Content.);
+                    //else
+                    //    ans = response.ReasonPhrase;
+                }
+                if (ans != "OK")
+                {
+
+                    throw new WebException(ans);
+                }
+            }
+
+           
+
+           
+          
+
+            catch (WebException ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

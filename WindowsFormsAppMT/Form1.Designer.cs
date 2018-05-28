@@ -46,6 +46,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.labelError = new System.Windows.Forms.Label();
             this.comboBoxFindUser = new System.Windows.Forms.ComboBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +80,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserFirstName,
@@ -235,6 +243,63 @@
             this.comboBoxFindUser.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFindUser_SelectionChangeCommitted);
             this.comboBoxFindUser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxFindUser_Format);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "UserFirstName";
+            this.dataGridViewTextBoxColumn1.FillWeight = 45.57619F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "שם פרטי";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 76;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "UserID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Column1";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "UserLastName";
+            this.dataGridViewTextBoxColumn3.FillWeight = 45.57619F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "שם משפחה";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 88;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "כתובת";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 115;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "טלפונים";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 115;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "DaysSumForDiscount";
+            this.dataGridViewTextBoxColumn6.HeaderText = "ימים צבורים";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 115;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.HeaderText = "הערות";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 64;
+            // 
             // UserFirstName
             // 
             this.UserFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -269,6 +334,7 @@
             this.UserEmail.FillWeight = 45.57619F;
             this.UserEmail.HeaderText = "מייל";
             this.UserEmail.Name = "UserEmail";
+            this.UserEmail.ReadOnly = true;
             this.UserEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.UserEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.UserEmail.Width = 56;
@@ -277,40 +343,47 @@
             // 
             this.useraddress.HeaderText = "כתובת";
             this.useraddress.Name = "useraddress";
+            this.useraddress.ReadOnly = true;
             // 
             // UserPhones
             // 
             this.UserPhones.HeaderText = "טלפונים";
             this.UserPhones.Name = "UserPhones";
+            this.UserPhones.ReadOnly = true;
             // 
             // DaysSumForDiscount
             // 
             this.DaysSumForDiscount.DataPropertyName = "DaysSumForDiscount";
             this.DaysSumForDiscount.HeaderText = "ימים צבורים";
             this.DaysSumForDiscount.Name = "DaysSumForDiscount";
+            this.DaysSumForDiscount.ReadOnly = true;
             // 
             // AcceptMessages
             // 
             this.AcceptMessages.DataPropertyName = "Acceptmessages";
             this.AcceptMessages.HeaderText = "מקבל הודעות?";
             this.AcceptMessages.Name = "AcceptMessages";
+            this.AcceptMessages.ReadOnly = true;
             // 
             // DogsWatch
             // 
             this.DogsWatch.DataPropertyName = "DogsNumber";
             this.DogsWatch.HeaderText = "הכלבים";
             this.DogsWatch.Name = "DogsWatch";
+            this.DogsWatch.ReadOnly = true;
             // 
             // ReservationsNumber
             // 
             this.ReservationsNumber.DataPropertyName = "ReservationsNumber";
             this.ReservationsNumber.HeaderText = "הזמנות";
             this.ReservationsNumber.Name = "ReservationsNumber";
+            this.ReservationsNumber.ReadOnly = true;
             // 
             // CreateOrder
             // 
             this.CreateOrder.HeaderText = "צור הזמנה";
             this.CreateOrder.Name = "CreateOrder";
+            this.CreateOrder.ReadOnly = true;
             // 
             // Vet
             // 
@@ -320,8 +393,10 @@
             // UserComments
             // 
             this.UserComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UserComments.DataPropertyName = "UserComments";
             this.UserComments.HeaderText = "הערות";
             this.UserComments.Name = "UserComments";
+            this.UserComments.ReadOnly = true;
             this.UserComments.Width = 64;
             // 
             // UpdateDtails
@@ -397,6 +472,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UserComments;
         private System.Windows.Forms.DataGridViewButtonColumn UpdateDtails;
         private System.Windows.Forms.DataGridViewButtonColumn AddDog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
 

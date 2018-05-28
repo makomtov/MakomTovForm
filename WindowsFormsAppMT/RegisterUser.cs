@@ -56,7 +56,7 @@ namespace WindowsFormsAppMT
                 return;
             UserDetailsView userDetailsView = new UserDetailsView();
             userDetailsView.UserAddress = textBoxUserAddress.Text;
-            userDetailsView.UserCityName = comboBoxUserCityName.Text;
+            userDetailsView.UserCity = comboBoxUserCityName.Text;
             userDetailsView.UserComments = textBoxusercomments.Text;
             userDetailsView.UserEmail = textBoxUserEmail.Text;
             userDetailsView.UserFirstName = textBoxuserFirstName.Text;

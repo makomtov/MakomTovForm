@@ -16,11 +16,14 @@ namespace WindowsFormsAppMT
         public Menu()
         {
             InitializeComponent();
+          
         }
         public Menu(string child)
         {
             InitializeComponent();
             id = child;
+           
+
         }
         private void ToolStripMenuItemUsers_Click(object sender, EventArgs e)
         {
@@ -46,16 +49,14 @@ namespace WindowsFormsAppMT
 
         private void ToolStripMenuItemWatchOrders_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             reservations reservations = new reservations();
             reservations.Show();
         }
 
         private void ToolStripMenuItemWatchUsers_Click(object sender, EventArgs e)
         {
-
-            
-            
+            this.Hide();
             Form1 f1 = new Form1(LogIn.loginView);
             f1.Show();
 
@@ -68,14 +69,16 @@ namespace WindowsFormsAppMT
 
         private void הוספתמשתמשToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (id == "Form1")
-            {
-               
-                Form1 f1 = new Form1(LogIn.loginView);
-                f1.CloseMe();
-            }
+            this.Hide();
                 RegisterUser registerUser = new RegisterUser();
                  registerUser.Show();
+        }
+
+        private void ניהולכלביםבפנסיוןToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Rooms rooms = new Rooms(LogIn.loginView);
+            rooms.Show();
         }
     }
 }
