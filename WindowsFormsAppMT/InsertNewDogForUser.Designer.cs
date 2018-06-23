@@ -189,7 +189,7 @@
             this.comboBoxDogType.Name = "comboBoxDogType";
             this.comboBoxDogType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDogType.TabIndex = 28;
-            this.comboBoxDogType.Validating += new System.ComponentModel.CancelEventHandler(this.comboBoxDogType_Validating);
+            this.comboBoxDogType.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // comboBoxDogGender
             // 
@@ -199,9 +199,11 @@
             "נקבה"});
             this.comboBoxDogGender.Location = new System.Drawing.Point(786, 225);
             this.comboBoxDogGender.Name = "comboBoxDogGender";
+            this.comboBoxDogGender.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.comboBoxDogGender.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDogGender.TabIndex = 29;
             this.comboBoxDogGender.Text = "בחר";
+            this.comboBoxDogGender.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // dateTimePickerDogRabiesVaccine
             // 
@@ -224,6 +226,7 @@
             this.comboBoxDogFriendlyWith.Name = "comboBoxDogFriendlyWith";
             this.comboBoxDogFriendlyWith.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDogFriendlyWith.TabIndex = 33;
+            this.comboBoxDogFriendlyWith.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // checkBoxDogDig
             // 

@@ -116,6 +116,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -80,13 +80,15 @@ namespace WindowsFormsAppMT
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxShift = new System.Windows.Forms.ComboBox();
+            this.labelArrivalTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(49, 39);
+            this.buttonUpdate.Location = new System.Drawing.Point(1340, 37);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 6;
@@ -288,7 +290,7 @@ namespace WindowsFormsAppMT
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1061, 37);
+            this.dateTimePicker1.Location = new System.Drawing.Point(244, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker1.RightToLeftLayout = true;
@@ -297,7 +299,7 @@ namespace WindowsFormsAppMT
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(672, 37);
+            this.dateTimePicker2.Location = new System.Drawing.Point(875, 36);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 12;
@@ -307,7 +309,7 @@ namespace WindowsFormsAppMT
             // 
             this.labelFrom.AutoSize = true;
             this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFrom.Location = new System.Drawing.Point(1277, 39);
+            this.labelFrom.Location = new System.Drawing.Point(169, 41);
             this.labelFrom.Name = "labelFrom";
             this.labelFrom.Size = new System.Drawing.Size(47, 18);
             this.labelFrom.TabIndex = 13;
@@ -317,7 +319,7 @@ namespace WindowsFormsAppMT
             // 
             this.labelTo.AutoSize = true;
             this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelTo.Location = new System.Drawing.Point(888, 37);
+            this.labelTo.Location = new System.Drawing.Point(1116, 40);
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(68, 18);
             this.labelTo.TabIndex = 14;
@@ -326,7 +328,7 @@ namespace WindowsFormsAppMT
             // 
             // buttonChooseDates
             // 
-            this.buttonChooseDates.Location = new System.Drawing.Point(951, 34);
+            this.buttonChooseDates.Location = new System.Drawing.Point(697, 43);
             this.buttonChooseDates.Name = "buttonChooseDates";
             this.buttonChooseDates.Size = new System.Drawing.Size(104, 23);
             this.buttonChooseDates.TabIndex = 16;
@@ -448,10 +450,32 @@ namespace WindowsFormsAppMT
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
+            // comboBoxShift
+            // 
+            this.comboBoxShift.DisplayMember = "1";
+            this.comboBoxShift.FormattingEnabled = true;
+            this.comboBoxShift.Location = new System.Drawing.Point(543, 43);
+            this.comboBoxShift.Name = "comboBoxShift";
+            this.comboBoxShift.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxShift.TabIndex = 18;
+            this.comboBoxShift.ValueMember = "1";
+            // 
+            // labelArrivalTime
+            // 
+            this.labelArrivalTime.AutoSize = true;
+            this.labelArrivalTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelArrivalTime.Location = new System.Drawing.Point(470, 43);
+            this.labelArrivalTime.Name = "labelArrivalTime";
+            this.labelArrivalTime.Size = new System.Drawing.Size(54, 18);
+            this.labelArrivalTime.TabIndex = 17;
+            this.labelArrivalTime.Text = "משמרת";
+            // 
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1469, 755);
+            this.ClientSize = new System.Drawing.Size(1283, 755);
+            this.Controls.Add(this.comboBoxShift);
+            this.Controls.Add(this.labelArrivalTime);
             this.Controls.Add(this.buttonChooseDates);
             this.Controls.Add(this.labelTo);
             this.Controls.Add(this.labelFrom);
@@ -469,6 +493,8 @@ namespace WindowsFormsAppMT
             this.Controls.SetChildIndex(this.labelFrom, 0);
             this.Controls.SetChildIndex(this.labelTo, 0);
             this.Controls.SetChildIndex(this.buttonChooseDates, 0);
+            this.Controls.SetChildIndex(this.labelArrivalTime, 0);
+            this.Controls.SetChildIndex(this.comboBoxShift, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).EndInit();
             this.ResumeLayout(false);
@@ -524,5 +550,7 @@ namespace WindowsFormsAppMT
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Owner;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToDateInPension;
+        private System.Windows.Forms.ComboBox comboBoxShift;
+        private System.Windows.Forms.Label labelArrivalTime;
     }
 }

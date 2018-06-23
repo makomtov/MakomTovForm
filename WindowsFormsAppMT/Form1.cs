@@ -175,8 +175,10 @@ namespace WindowsFormsAppMT
             }
             if (senderGrid.Columns[e.ColumnIndex].Name == "CreateOrder" && e.RowIndex >= 0)
             {
-
-                UserDetailsView userDetailsView = new UserDetailsView();
+                UserDetailsView user = FindUserInList(int.Parse(senderGrid.Rows[e.RowIndex].Cells["User"].Value.ToString()), listUsers);
+                if (user.DogsNumber > 0)
+                {
+                    UserDetailsView userDetailsView = new UserDetailsView();
                 userDetailsView.UserID = int.Parse(row.Cells["User"].Value.ToString());
                 userDetailsView.UserLastName = row.Cells["UserLastName"].Value.ToString();
                 userDetailsView.UserFirstName = row.Cells["UserFirstName"].Value.ToString();
@@ -186,6 +188,13 @@ namespace WindowsFormsAppMT
                 CreateOrder createOrder = new CreateOrder(userDetailsView); //this is the change, code for redirect
 
                 createOrder.Show();
+                }
+                else
+                {
+                    labelError.Text = "ל";
+                    labelError.Text += user.UserFirstName + " " + user.UserLastName;
+                    labelError.Text += " אין כלבים. לא ניתן לבצע הזמנה ";
+                }
             }
             if(senderGrid.Columns[e.ColumnIndex].Name == "Vet" && e.RowIndex >= 0)
                 {

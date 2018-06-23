@@ -54,6 +54,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxOrderNumber);
             this.Name = "ReservationDetails";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ResumeLayout(false);
             this.PerformLayout();
 

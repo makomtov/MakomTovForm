@@ -61,6 +61,13 @@ namespace WindowsFormsAppMT
             }
 
         }
+        public static void checkComboBox(this ErrorProvider ep, ComboBox comboBox)
+        {
+            if (comboBox.Text.IndexOf("בחר")>=0)
+            { ErrorProviderExtensions.SetErrorWithCount(ep, comboBox, "עליך לבחו ערך"); }
+            else
+                ErrorProviderExtensions.SetErrorWithCount(ep, comboBox, "");
+        }
     }
 }
 

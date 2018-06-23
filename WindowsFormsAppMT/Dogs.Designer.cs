@@ -235,6 +235,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.dataGridViewDogs);
             this.Name = "Dogs";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Controls.SetChildIndex(this.dataGridViewDogs, 0);
             this.Controls.SetChildIndex(this.labelName, 0);
             this.Controls.SetChildIndex(this.buttonUpdate, 0);

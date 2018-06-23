@@ -8,12 +8,13 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using WebApiMTModel.Models.Models.View;
-using System.Drawing;
+
 
 namespace WindowsFormsAppMT
 {
     public partial class Rooms : WindowsFormsAppMT.Menu
     {
+        List<ShiftView> openHours;
         ReservationDetails reservationDetails;
         //  List<Panel> listPanels = new List<Panel>();
         DataTable DataTablDogs;
@@ -73,11 +74,16 @@ namespace WindowsFormsAppMT
             DateTime fromDate { get; set; }
             [JsonProperty("toDate")]
             DateTime toDate { get; set; }
-
-            public Dates(DateTime fromDate, DateTime toDate)
+            [JsonProperty("fromShift")]
+            int fromShift { get; set; }
+            [JsonProperty("toShift")]
+            int toShift { get; set; }
+            public Dates(DateTime fromDate, DateTime toDate,int fromShift, int toShift)
             {
                 this.fromDate = fromDate;
                 this.toDate = toDate;
+                this.fromShift = fromShift;
+                this.toShift = toShift;
 
             }
         }
@@ -99,6 +105,8 @@ namespace WindowsFormsAppMT
             InitializeComponent();
             //   panelContainer.Anchor = System.Windows.Forms.AnchorStyles.Left;
             GetFileInformation();
+            GetFileOpenHours();
+            populateCBShift();
         }
         public Rooms(LoginView loginView)
         {
@@ -120,19 +128,21 @@ namespace WindowsFormsAppMT
                 //  panelContainer.Anchor = System.Windows.Forms.AnchorStyles.Left;
 
                 GetFileInformation();
-                int w = 0;
-                int h = 0;
-                if (rooms.Count > 20)
+                GetFileOpenHours();
+                populateCBShift();
+                //int w = 0;
+                //int h = 0;
+                //if (rooms.Count > 20)
 
-                {
-                    w = 2000;
-                    h = 300;
-                }
-                else
-                {
-                    w = rooms.Count * 230;
-                    h = 300;
-                }
+                //{
+                //    w = 2000;
+                //    h = 300;
+                //}
+                //else
+                //{
+                //    w = rooms.Count * 230;
+                //    h = 300;
+                //}
                 //   panelContainer.Width = w;
                 //   panelContainer.Height = h;
             }
@@ -146,7 +156,7 @@ namespace WindowsFormsAppMT
 
                 DataService dataService = new DataService();
                 //Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker2.Value);
-                Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker1.Value);
+                Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker1.Value,int.Parse(comboBoxShift.ValueMember), int.Parse(comboBoxShift.ValueMember));
                 rooms = dataService.GetRoomsSetting(dates);
                 for (int i = 0; i < Controls.Count; i++)
                 {
@@ -171,7 +181,7 @@ namespace WindowsFormsAppMT
         {
             //  panelContainer.Controls.Clear();
 
-            int x = 1300;
+            int x = 1500;
             int y = 220;
             int numTabIndex = 18;
             roomPanel = new RoomPanel();
@@ -312,7 +322,32 @@ namespace WindowsFormsAppMT
 
         }
 
+        private void populateCBShift()
+        {
+            
+            comboBoxShift.Items.Clear();
+            Item item;
 
+            for (int i = 0; i < openHours.Count; i++)
+            {
+                item = new Item(openHours[i].Description, openHours[i].ShiftNumber);
+             
+                comboBoxShift.Items.Add(item);
+            }
+            if (dateTimePicker1.Value.Hour >= 7 && dateTimePicker1.Value.Hour <= 12)
+                comboBoxShift.SelectedIndex=0;
+            else
+             // if (dateTimePicker1.Value.Hour >= 16 && dateTimePicker1.Value.Hour <= 19)
+                comboBoxShift.SelectedIndex = 1;
+
+        }
+
+        private void GetFileOpenHours()
+        {
+            DataService dataService = new DataService();
+            openHours = dataService.GetOpenHours();
+
+        }
 
         void panel_DragEnter(object sender, DragEventArgs e)
         {
@@ -360,6 +395,7 @@ namespace WindowsFormsAppMT
                     roomPanels[int.Parse(b.Parent.Name)].AddToButtonPlace(buttonPlace);
                     roomPanels[lastPanelIndex].DeleteButton(buttonPlace.button.Name);
                     dogInRoomDetailsView.FromDateInRoom = dateTimePicker1.Value;
+                    dogInRoomDetailsView.RoomShiftFrom = int.Parse(comboBoxShift.ValueMember);
                     rooms[int.Parse(b.Parent.Name)].dogsInRoom.Insert(0, dogInRoomDetailsView);
 
                     //  dogInRoomDetailsView = FindDogInRoom(index, rooms[int.Parse(b.Parent.Name)].dogsInRoom);
@@ -526,7 +562,7 @@ namespace WindowsFormsAppMT
             }
             return null;
         }
-        string n;
+     //   string n;
         private void button2_Click(object sender, EventArgs e)
         {
             //foreach (Control c in panel1.Controls)

@@ -406,7 +406,7 @@ namespace WindowsFormsAppMT
                 ShiftNumberFromCB.ValueMember = "ShiftNumber";
 
                 OrderDetailsView orderDetailsView = FindOrderInList(int.Parse(viewRow.Cells[1].Value.ToString()), listOrder);
-                viewRow.Cells["ShiftNumberTo"].Value = orderDetailsView.ShiftNumberFrom;
+                viewRow.Cells["ShiftNumberTo"].Value = orderDetailsView.ShiftNumberTo;
             }
         }
         private OrderDetailsView FindOrderInList(int num, List<OrderDetailsViewManager> list)

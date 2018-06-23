@@ -13,23 +13,7 @@ namespace WindowsFormsAppMT
 {
     public partial class CreateOrder : WindowsFormsAppMT.Menu
     {
-        private class Item
-        {
-            public string Name;
-            public int _Value;
-            public Item(string description, int value)
-            {
-                Name = description;
-                _Value = value;
-            }
-            public override string ToString()
-            {
-                // Generates the text shown in the combo box
-                return Name;
-            }
-            public int Value
-            { get; set; }
-        }
+       
         List<ShiftView> openHours;
         UserDetailsView user;
         OrderDetailsView orderDetailsView;
@@ -188,6 +172,9 @@ namespace WindowsFormsAppMT
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+
+
+
             try
             {
               //  { "OrderNumber":0,"OrderDate":"2018-05-06T22:44:20.4086468+03:00","User":null,"Userid":1,"userFirstName":null,"userLastName":null,"useremail":"ziris248@gmail.com","Price":0.0,"OrderconfirmationNumber":null,"OrderStatus":11,"OrderStatusName":null,"OrderType":0,"OrderTypeName":null,"FromDate":"2018-05-06T22:44:10.5524488+03:00","ShiftNumberFrom":1,"ToDate":"2018-05-06T22:44:10.5444349+03:00","ShiftNumberTo":1,"Discount":0.0,"mDogs":[{"OrderNumber":0,"DogTraining":false,"Pension":true,"HomeFood":false,"Status":0,"DogNumber":3,"DogUserID":1,"DogName":"ghgf","DogComments":"ytry","DogShvav":"565","DogType":"אלסקן מלמוט","DogStatus":0,"DogImage":null,"DogGender":"נקבה","DogNeuter":true,"DogRabiesVaccine":"2018-04-01T00:00:00","DogBirthDate":"2018-02-01T00:00:00","DogFriendlyWith":2,"DogDig":false,"DogJump":false},{"OrderNumber":0,"DogTraining":false,"Pension":true,"HomeFood":false,"Status":0,"DogNumber":4,"DogUserID":1,"DogName":"tytr","DogComments":"gfhgfhf","DogShvav":"45654","DogType":"אלסקן מלמוט","DogStatus":0,"DogImage":null,"DogGender":"זכר","DogNeuter":true,"DogRabiesVaccine":"2017-01-01T00:00:00","DogBirthDate":"2015-01-01T00:00:00","DogFriendlyWith":3,"DogDig":false,"DogJump":false}]}
@@ -206,11 +193,12 @@ namespace WindowsFormsAppMT
                 orderDetailsView.Userid = user.UserID;
                 orderDetailsView.UserEmail = user.UserEmail;
 
-                for(int i=0;i<listDogsInOrderView.Count;i++)
+                for(int i= listDogsInOrderView.Count-1; i>=0;i--)
                 {
                     if(listDogsInOrderView[i].Status==23)
                     {
                         listDogsInOrderView.RemoveAt(i);
+                       
 
                     }
                 }

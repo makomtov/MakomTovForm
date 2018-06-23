@@ -38,7 +38,7 @@ namespace WindowsFormsAppMT
                 comboBoxDogType.Items.Add(DogTypesTBL.Rows[i]["type_Text"]);
             }
 
-            comboBoxDogType.Items.Insert(0, "בחר גזע");
+            comboBoxDogType.Items.Insert(0, "בחר");
             comboBoxDogType.SelectedIndex = 0;
         }
         private void populateCBDogFriendlyWith()
@@ -50,7 +50,7 @@ namespace WindowsFormsAppMT
                 comboBoxDogFriendlyWith.Items.Add((dogFriendlyWith)i);
             }
 
-            comboBoxDogFriendlyWith.Items.Insert(0, "בחר ");
+            comboBoxDogFriendlyWith.Items.Insert(0, "בחר");
             comboBoxDogFriendlyWith.SelectedIndex = 0;
         }
         private void GetFileDogTypes()
@@ -62,6 +62,7 @@ namespace WindowsFormsAppMT
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            this.ValidateChildren();
             if (ErrorProviderExtensions.HasErrors(errorProvider1))
                 return;
             DogDetailsView dogDetailsView = new DogDetailsView();
@@ -104,9 +105,11 @@ namespace WindowsFormsAppMT
             ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxDogName, "שם כלב חובה");
         }
 
-        private void comboBoxDogType_Validating(object sender, CancelEventArgs e)
+        private void comboBox_Validating(object sender, CancelEventArgs e)
         {
-
+            ErrorProviderExtensions.checkComboBox(errorProvider1, (ComboBox)sender);
         }
+
+       
     }
 }
