@@ -57,6 +57,7 @@
             // 
             // dateTimePickerFrom
             // 
+           
             this.dateTimePickerFrom.Location = new System.Drawing.Point(508, 106);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(200, 20);

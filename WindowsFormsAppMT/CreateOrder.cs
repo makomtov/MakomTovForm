@@ -32,6 +32,8 @@ namespace WindowsFormsAppMT
                 this.user.UserEmail = user.UserEmail;
 
                 InitializeComponent();
+                dateTimePickerFrom.MinDate = System.DateTime.Now;
+                dateTimePickerTo.MinDate = System.DateTime.Now;
                 labelName.Text += user.UserFirstName + " " + user.UserLastName;
                 GetDogsInformation(user.UserID);
             GetFileOpenHours();
