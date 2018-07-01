@@ -36,6 +36,7 @@
             this.הוספתמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ביטולמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ניהולכלביםבפנסיוןToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.הוסףעדכןחדריםToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemReservations,
             this.ToolStripMenuItemUsers,
-            this.ניהולכלביםבפנסיוןToolStripMenuItem});
+            this.ניהולכלביםבפנסיוןToolStripMenuItem,
+            this.הוסףעדכןחדריםToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.ToolStripMenuItemUsers;
             this.menuStrip1.Name = "menuStrip1";
@@ -107,6 +109,13 @@
             this.ניהולכלביםבפנסיוןToolStripMenuItem.Text = "ניהול כלבים בפנסיון";
             this.ניהולכלביםבפנסיוןToolStripMenuItem.Click += new System.EventHandler(this.ניהולכלביםבפנסיוןToolStripMenuItem_Click);
             // 
+            // הוסףעדכןחדריםToolStripMenuItem
+            // 
+            this.הוסףעדכןחדריםToolStripMenuItem.Name = "הוסףעדכןחדריםToolStripMenuItem";
+            this.הוסףעדכןחדריםToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.הוסףעדכןחדריםToolStripMenuItem.Text = "הוסף חדר ";
+            this.הוסףעדכןחדריםToolStripMenuItem.Click += new System.EventHandler(this.הוסףעדכןחדריםToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,5 +146,6 @@
         private System.Windows.Forms.ToolStripMenuItem הוספתמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ביטולמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ניהולכלביםבפנסיוןToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem הוסףעדכןחדריםToolStripMenuItem;
     }
 }

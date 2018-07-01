@@ -174,6 +174,11 @@ namespace WindowsFormsAppMT
             ErrorProviderExtensions.checkEmpty(errorProvider1, textBoxUserPaswrd, "סיסמה חובה");
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

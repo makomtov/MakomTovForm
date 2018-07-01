@@ -140,8 +140,10 @@ namespace WindowsFormsAppMT
             dataGridViewOrders.DataSource = dv;
             // Automatically resize the visible rows.
             dataGridViewOrders.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            if(dv.Count>0)
-            populateDogsInOrder(dv.ToTable().Rows[0]["OrderNumber"].ToString());
+            if (dv.Count > 0)
+                populateDogsInOrder(dv.ToTable().Rows[0]["OrderNumber"].ToString());
+            else
+                dataGridViewDogsInOrder.Visible = false;
             // Set the DataGridView control's border.
             //
 
@@ -591,6 +593,11 @@ namespace WindowsFormsAppMT
             string field = "";
             string filter = "";
             bool check = false;
+            if (textBoxOrderNumber.Text != "")
+            {
+                filter = "OrderNumber=" + textBoxOrderNumber.Text;
+                return filter;
+            }
             foreach (ListViewItem itm in listViewStatus.Items)
             {
                 if (itm.Checked)

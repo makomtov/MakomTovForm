@@ -77,6 +77,9 @@ namespace WindowsFormsAppMT
             this.listViewStatus = new System.Windows.Forms.ListView();
             this.StatusName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBoxChooseDate = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxOrderNumber = new System.Windows.Forms.TextBox();
+            this.labelOR = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogsInOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatus)).BeginInit();
@@ -448,11 +451,39 @@ namespace WindowsFormsAppMT
             this.comboBoxChooseDate.TabIndex = 14;
             this.comboBoxChooseDate.Text = "ללא תאריך";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(236, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "מספר הזמנה";
+            // 
+            // textBoxOrderNumber
+            // 
+            this.textBoxOrderNumber.Location = new System.Drawing.Point(336, 177);
+            this.textBoxOrderNumber.Name = "textBoxOrderNumber";
+            this.textBoxOrderNumber.Size = new System.Drawing.Size(100, 20);
+            this.textBoxOrderNumber.TabIndex = 15;
+            // 
+            // labelOR
+            // 
+            this.labelOR.AutoSize = true;
+            this.labelOR.Location = new System.Drawing.Point(345, 143);
+            this.labelOR.Name = "labelOR";
+            this.labelOR.Size = new System.Drawing.Size(20, 13);
+            this.labelOR.TabIndex = 17;
+            this.labelOR.Text = "או";
+            // 
             // reservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1483, 728);
+            this.Controls.Add(this.labelOR);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxOrderNumber);
             this.Controls.Add(this.comboBoxChooseDate);
             this.Controls.Add(this.listViewStatus);
             this.Controls.Add(this.buttonSearch);
@@ -467,7 +498,6 @@ namespace WindowsFormsAppMT
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "reservations";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "הזמנות";
             this.Load += new System.EventHandler(this.reservations_Load);
@@ -483,6 +513,9 @@ namespace WindowsFormsAppMT
             this.Controls.SetChildIndex(this.buttonSearch, 0);
             this.Controls.SetChildIndex(this.listViewStatus, 0);
             this.Controls.SetChildIndex(this.comboBoxChooseDate, 0);
+            this.Controls.SetChildIndex(this.textBoxOrderNumber, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.labelOR, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogsInOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStatus)).EndInit();
@@ -532,5 +565,8 @@ namespace WindowsFormsAppMT
         private DataGridViewTextBoxColumn ManagerComments;
         private DataGridViewButtonColumn DogsInOrder;
         private DataGridViewComboBoxColumn OrderStatus;
+        private Label label3;
+        private TextBox textBoxOrderNumber;
+        private Label labelOR;
     }
 }

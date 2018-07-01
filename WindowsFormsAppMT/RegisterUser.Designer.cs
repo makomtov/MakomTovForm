@@ -58,6 +58,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.checkBoxAccept = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -320,10 +321,19 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "אני מסכים לקבל דואר מהכלביה";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(339, 179);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 30;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(711, 644);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxAccept);
             this.Controls.Add(this.textBoxVetPhone);
@@ -353,7 +363,6 @@
             this.Controls.Add(this.labelUserLastName);
             this.Controls.Add(this.labelUserFirstName);
             this.Name = "RegisterUser";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Controls.SetChildIndex(this.labelUserFirstName, 0);
             this.Controls.SetChildIndex(this.labelUserLastName, 0);
             this.Controls.SetChildIndex(this.labelUserEmail, 0);
@@ -382,6 +391,7 @@
             this.Controls.SetChildIndex(this.textBoxVetPhone, 0);
             this.Controls.SetChildIndex(this.checkBoxAccept, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -419,5 +429,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxAccept;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -183,7 +183,7 @@ namespace WindowsFormsAppMT
 
             int x = 1500;
             int y = 220;
-            int numTabIndex = 18;
+            int numTabIndex = 50;
             roomPanel = new RoomPanel();
             roomPanels = new List<RoomPanel>();
             Panel panel = new Panel();
@@ -234,7 +234,7 @@ namespace WindowsFormsAppMT
                 if (x < 20)
                 {
                     y += 350;
-                    x = 1255;
+                    x = 1370;
                 }
                 panel.TabIndex = numTabIndex;
                 roomPanel = new RoomPanel();
@@ -249,11 +249,18 @@ namespace WindowsFormsAppMT
                 panel.DragDrop += panel_DragDrop;
                 panel.Location = new Point(x, y);
                 panel.BackColor = Color.Pink;
-                label = new Label();
-                label.Name = rooms[r].RoomID.ToString();
-                label.Location = new Point(x, y - 17);
-                label.Text = rooms[r].RoomID + " חדר ";
-                Controls.Add(label);
+                //label = new Label();
+                //label.Name = rooms[r].RoomID.ToString();
+                //label.Location = new Point(x, y - 17);
+                //label.Text = rooms[r].RoomID + " חדר ";
+                //Controls.Add(label);
+                Button ButtonRoomDetails = new Button();
+                ButtonRoomDetails.Width = 100;
+                ButtonRoomDetails.Name = rooms[r].RoomID.ToString();
+                ButtonRoomDetails.Location = new Point(x, y - 17);
+                ButtonRoomDetails.Text = rooms[r].RoomID + " חדר ";
+                ButtonRoomDetails.Click += RoomDetails_Click;
+                Controls.Add(ButtonRoomDetails);
                 if (rooms[r].RoomStatus != 21)
                 {
                     label.Text += rooms[r].RoomStatusName;
@@ -306,7 +313,24 @@ namespace WindowsFormsAppMT
             }
 
         }
+        private RoomsDetailsView FindRoomInList(int num, List<RoomsDetailsView> list)
+        {
+            RoomsDetailsView roomsDetailsView = list.Find(item => item.RoomID == num);
+            return roomsDetailsView;
+        }
+        private void RoomDetails_Click(object sender, EventArgs e)
+        {
+            this.panelRoomDetails.Visible = true;
+            panelRoomDetails.Show();
+            Controls.Add(panelRoomDetails);
+            //   string r = ((Button)sender).Name.Substring(3, ((Button)sender).Name.Length - 3);
+            string r = ((Button)sender).Name;
 
+            RoomsDetailsView roomsDetailsView = FindRoomInList(int.Parse(r), rooms);
+            labelRoomNumber.Text = roomsDetailsView.RoomID+" חדר   ";
+            textBoxRoomcomments.Text = roomsDetailsView.RoomComments;
+            textBoxRoomDescription.Text = roomsDetailsView.RoomDescription;
+        }
 
         private void ListBox1_DragEnter(object sender, DragEventArgs e)
         {
@@ -337,8 +361,9 @@ namespace WindowsFormsAppMT
             if (dateTimePicker1.Value.Hour >= 7 && dateTimePicker1.Value.Hour <= 12)
                 comboBoxShift.SelectedIndex=0;
             else
-             // if (dateTimePicker1.Value.Hour >= 16 && dateTimePicker1.Value.Hour <= 19)
+              //if (dateTimePicker1.Value.Hour > 12 && dateTimePicker1.Value.Hour <= 19)
                 comboBoxShift.SelectedIndex = 1;
+            
 
         }
 
@@ -351,12 +376,18 @@ namespace WindowsFormsAppMT
 
         void panel_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Move;
+                      
+                e.Effect = DragDropEffects.Move;
         }
 
         void panel_DragDrop(object sender, DragEventArgs e)
         {
-
+            if (dateTimePicker1.Value.Date.CompareTo(DateTime.Now) < 0)
+            {
+                MessageBox.Show("לא ניתן להזיז כלבים בתאריכים קודמים");
+                // e.Effect = DragDropEffects.None;
+                return;
+            }
             Button b = (Button)e.Data.GetData(typeof(Button));
             int lastPanelIndex = int.Parse(b.Parent.Name);
             int index = int.Parse(b.Name.Remove(0, 6));
@@ -670,6 +701,19 @@ namespace WindowsFormsAppMT
         private void dataGridViewDog_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.panelRoomDetails.Visible = false;
+        }
+
+        private void buttonUpdateRoom_Click(object sender, EventArgs e)
+        {
+            string num = labelRoomNumber.Text.Substring(0, 1);
+            int roomNumber = int.Parse(num);
+            rooms[roomNumber].RoomComments = textBoxRoomcomments.Text;
+            rooms[roomNumber].RoomDescription = textBoxRoomDescription.Text;
         }
     }
 }

@@ -111,3 +111,4 @@ C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.UpdateUserD
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.InsertNewDogForUser.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.Rooms.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.ReservationDetails.resources
+C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.AddRoom.resources

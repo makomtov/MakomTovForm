@@ -80,5 +80,12 @@ namespace WindowsFormsAppMT
             Rooms rooms = new Rooms(LogIn.loginView);
             rooms.Show();
         }
+
+        private void הוסףעדכןחדריםToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddRoom addRoom=new AddRoom(LogIn.loginView);
+            addRoom.Show();
+        }
     }
 }

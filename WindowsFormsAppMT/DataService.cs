@@ -688,6 +688,58 @@ namespace WindowsFormsAppMT
                 throw ex;
             }
         }
+        /// <summary>
+        /// Add new room
+        /// </summary>
+        /// <param name="userDetailsView"></param>
+        public void AddRoom(RoomsDetailsView roomsDetailsView)
+        {
+            // POST a JSON string
+            string uri = URI + "Rooms/AddRoom";
+            string ans = "";
+
+            try
+            {
+
+
+                string jsonContent = JsonConvert.SerializeObject(roomsDetailsView);
+                ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+                using (var client = new HttpClient())
+                {
+                    if (!string.IsNullOrWhiteSpace(LogIn.token))
+                    {
+                        var t = JsonConvert.DeserializeObject<Token>(LogIn.token);
+
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                    }
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+
+                    var response = client.PostAsync(uri, content).Result;
+                    //var response = client.GetAsync(url).Result;
+                    if (response.StatusCode != HttpStatusCode.Unauthorized)
+                        ans = response.Content.ReadAsStringAsync().Result;
+                    else
+                        ans = response.ReasonPhrase;
+                    //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+
+
+                    //ans = JsonConvert.DeserializeObject<DogsForManagerView>(response.Result.Content.);
+                    //else
+                    //    ans = response.ReasonPhrase;
+                }
+                if (ans == "Unauthorized")
+
+                    throw new WebException(ans);
+            }
+
+            catch (WebException ex)
+            {
+
+                throw ex;
+            }
+        }
 
         //  AddOneUserDog
 
