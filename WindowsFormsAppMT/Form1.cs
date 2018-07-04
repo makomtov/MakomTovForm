@@ -107,16 +107,16 @@ namespace WindowsFormsAppMT
         {
             bindingSource1.DataSource = list;
             dataGridView1.AutoGenerateColumns = false;
-            int size = 0;
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                size += column.Width;
-            }
+            //int size = 0;
+            //foreach (DataGridViewColumn column in dataGridView1.Columns)
+            //{
+            //    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //    size += column.Width;
+            //}
 
            
             dataGridView1.DataSource = bindingSource1;
-            dataGridView1.Width = size + 100;
+            //dataGridView1.Width = size + 100;
         }
 
         private UserDetailsView FindUserInList(int num, List<UserDetailsView> list)

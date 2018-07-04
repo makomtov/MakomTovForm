@@ -96,7 +96,7 @@ namespace WindowsFormsAppMT
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(1340, 37);
+            this.buttonUpdate.Location = new System.Drawing.Point(1200, 37);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 6;
@@ -108,6 +108,7 @@ namespace WindowsFormsAppMT
             // 
             this.dataGridViewDog.AllowUserToAddRows = false;
             this.dataGridViewDog.AllowUserToDeleteRows = false;
+            this.dataGridViewDog.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewDog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -131,10 +132,10 @@ namespace WindowsFormsAppMT
             this.OrderNumber,
             this.Owner,
             this.ToDateInPension});
-            this.dataGridViewDog.Location = new System.Drawing.Point(5, 78);
+            this.dataGridViewDog.Location = new System.Drawing.Point(0, 72);
             this.dataGridViewDog.Name = "dataGridViewDog";
             this.dataGridViewDog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridViewDog.Size = new System.Drawing.Size(1743, 71);
+            this.dataGridViewDog.Size = new System.Drawing.Size(1283, 70);
             this.dataGridViewDog.TabIndex = 10;
             this.dataGridViewDog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDog_CellContentClick);
             // 
@@ -228,6 +229,7 @@ namespace WindowsFormsAppMT
             // comboBoxShift
             // 
             this.comboBoxShift.DisplayMember = "1";
+            this.comboBoxShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxShift.FormattingEnabled = true;
             this.comboBoxShift.Location = new System.Drawing.Point(543, 43);
             this.comboBoxShift.Name = "comboBoxShift";
@@ -253,7 +255,7 @@ namespace WindowsFormsAppMT
             this.panelRoomDetails.Controls.Add(this.textBoxRoomcomments);
             this.panelRoomDetails.Controls.Add(this.textBoxRoomDescription);
             this.panelRoomDetails.Controls.Add(this.labelRoomNumber);
-            this.panelRoomDetails.Location = new System.Drawing.Point(1500, 559);
+            this.panelRoomDetails.Location = new System.Drawing.Point(12, 409);
             this.panelRoomDetails.Name = "panelRoomDetails";
             this.panelRoomDetails.Size = new System.Drawing.Size(249, 307);
             this.panelRoomDetails.TabIndex = 19;
@@ -548,7 +550,7 @@ namespace WindowsFormsAppMT
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1283, 755);
+            this.ClientSize = new System.Drawing.Size(1283, 741);
             this.Controls.Add(this.panelRoomDetails);
             this.Controls.Add(this.comboBoxShift);
             this.Controls.Add(this.labelArrivalTime);

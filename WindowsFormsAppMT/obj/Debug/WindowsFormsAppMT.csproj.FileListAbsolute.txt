@@ -46,7 +46,6 @@ C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\WindowsFormsAppMT.exe
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\WindowsFormsAppMT.pdb
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\Newtonsoft.Json.dll
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Net.Http.Formatting.dll
-C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\WebApiMTModel.dll
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.Optimization.dll
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.Mvc.dll
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.Http.dll
@@ -70,7 +69,6 @@ C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.Razor.xml
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.WebPages.Razor.xml
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.WebPages.xml
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.csprojResolveAssemblyReference.cache
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.Form1.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.MailForm.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.Menu.resources
@@ -112,3 +110,5 @@ C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.InsertNewDo
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.Rooms.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.ReservationDetails.resources
 C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.AddRoom.resources
+C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.csprojAssemblyReference.cache
+C:\git_ws\MakomTovForm\WindowsFormsAppMT\obj\Debug\WindowsFormsAppMT.csproj.CopyComplete

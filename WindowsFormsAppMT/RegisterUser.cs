@@ -67,6 +67,7 @@ namespace WindowsFormsAppMT
             userDetailsView.VeterinarName = textBoxVetName.Text;
             userDetailsView.VeterinarPhone1 = textBoxVetPhone.Text;
             userDetailsView.Acceptmessages = checkBoxAccept.Checked;
+            userDetailsView.UserStatusCode = 21;
             try
             {
                 DataService dataService = new DataService();

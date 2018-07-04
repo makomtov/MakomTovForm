@@ -188,9 +188,9 @@ namespace WindowsFormsAppMT
                 orderDetailsView.OrderStatus = 11;
                 orderDetailsView.Price = 0;
                 Item item = (Item)comboBoxArrival.SelectedItem;
-                orderDetailsView.ShiftNumberFrom = item._Value;
+                orderDetailsView.ShiftNumberFrom = item.Value;
                  item = (Item)comboBoxExit.SelectedItem;
-                orderDetailsView.ShiftNumberTo = item._Value;
+                orderDetailsView.ShiftNumberTo = item.Value;
                 orderDetailsView.ToDate = dateTimePickerTo.Value;
                 orderDetailsView.Userid = user.UserID;
                 orderDetailsView.UserEmail = user.UserEmail;

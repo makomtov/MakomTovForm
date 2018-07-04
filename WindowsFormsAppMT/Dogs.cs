@@ -39,25 +39,31 @@ namespace WindowsFormsAppMT
             DataService dataService = new DataService();
             dogsForManagerView = new DogsForManagerView();
             dogsForManagerView.UserDogs = dataService.GetDogsInformationAsync(int.Parse(userid));
-           // bindingSourceDogs.DataSource = dogsForManagerView.UserDogs;
+            // bindingSourceDogs.DataSource = dogsForManagerView.UserDogs;
 
-            bindingSourceDogs.DataSource = convertListDogsToTable(dogsForManagerView.UserDogs);
-            dataGridViewDogs.AutoGenerateColumns = false;
-            int size = 0;
-            foreach (DataGridViewColumn column in dataGridViewDogs.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                size += column.Width;
-            }
-
-            dataGridViewDogs.RowTemplate.Height = 50;
-           
-          dataGridViewDogs.DataSource = bindingSourceDogs;
+            showGrid();
             //  dataGridViewDogs.Width = size + 100;
             // Automatically resize the visible rows.
-          //  dataGridViewDogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            //  dataGridViewDogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
 
         }
+
+        private void showGrid()
+        {
+            bindingSourceDogs.DataSource = convertListDogsToTable(dogsForManagerView.UserDogs);
+            dataGridViewDogs.AutoGenerateColumns = false;
+            //int size = 0;
+            //foreach (DataGridViewColumn column in dataGridViewDogs.Columns)
+            //{
+            //    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //    size += column.Width;
+            //}
+
+            dataGridViewDogs.RowTemplate.Height = 50;
+
+            dataGridViewDogs.DataSource = bindingSourceDogs;
+        }
+
         private static Bitmap BitmapFromWeb(string URL)
         {
             try
@@ -96,6 +102,8 @@ namespace WindowsFormsAppMT
             DataTablDogs.Columns.Add(new DataColumn("ManagerComments"));
             foreach (DogDetailsViewManager dog in list)
                 {
+                if (dog.DogStatus == 21)
+                {
                     DataRow dr = DataTablDogs.NewRow();
                     dr["DogName"] = dog.DogName;
                     dr["DogComments"] = dog.DogComments;
@@ -113,7 +121,7 @@ namespace WindowsFormsAppMT
                     dr["DogNumber"] = dog.DogNumber;
                     dr["ManagerComments"] = dog.ManagerComments;
                     DataTablDogs.Rows.Add(dr);
-
+                }
                 }
             DataTablDogs.AcceptChanges();
             return DataTablDogs;
@@ -274,6 +282,45 @@ namespace WindowsFormsAppMT
         private void dataGridViewDogs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridViewDogs.BeginEdit(true);
+            var senderGrid = (DataGridView)sender;
+            DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+
+            if (senderGrid.Columns[e.ColumnIndex].Name == "Delete" && e.RowIndex >= 0)
+            {
+                DogDetailsView dog = FindDogInList(int.Parse(dataGridViewDogs.Rows[e.RowIndex].Cells["DogNumber"].Value.ToString()), dogsForManagerView.UserDogs);
+               
+
+              DialogResult dialogResult = MessageBox.Show("האם אתה בטוח שברצונך לבטל?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                //if (result == DialogResult.Yes)
+                //{
+                //    //code for Yes
+                //}
+                //else if (result == DialogResult.No)
+                //{
+                //    //code for No
+                //}
+                //else if (result == DialogResult.Cancel)
+                //{
+                //    //code for Cancel
+                //}
+
+              //  DialogResult dialogResult = MessageBox.Show(string.Format("האם אתה בטוח שברצונך לבטל את }0}", dog.DogName), "Delete", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DataService dataService = new DataService();
+                   List<OrderDetailsView> orderDetailsViews= dataService.GetFutureOrdersByDog(dog);
+                    if (orderDetailsViews.Count == 0)
+                    {
+                        dog.DogStatus = 22;
+                        showGrid();
+                    }
+                    else
+                        MessageBox.Show("יש הזמנות עתידיות עם הכלב הזה ");
+                }
+
+               
+            }
         }
     }
 }

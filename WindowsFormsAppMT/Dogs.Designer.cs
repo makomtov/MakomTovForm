@@ -34,6 +34,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dogs));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
+            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
+            this.labelName = new System.Windows.Forms.Label();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.DogNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +52,7 @@
             this.DogDig = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DogJump = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
-            this.labelName = new System.Windows.Forms.Label();
-            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.dataGridViewDogs.AllowUserToAddRows = false;
             this.dataGridViewDogs.AllowUserToDeleteRows = false;
+            this.dataGridViewDogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DogNumber,
@@ -76,17 +78,38 @@
             this.DogFriendlyWith,
             this.DogDig,
             this.DogJump,
-            this.ManagerComments});
-            this.dataGridViewDogs.Location = new System.Drawing.Point(29, 215);
+            this.ManagerComments,
+            this.Delete});
+            this.dataGridViewDogs.Location = new System.Drawing.Point(-12, 214);
             this.dataGridViewDogs.Name = "dataGridViewDogs";
             this.dataGridViewDogs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridViewDogs.Size = new System.Drawing.Size(1322, 224);
+            this.dataGridViewDogs.Size = new System.Drawing.Size(1370, 224);
             this.dataGridViewDogs.TabIndex = 4;
             this.dataGridViewDogs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellContentClick);
             this.dataGridViewDogs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewDogs_CellMouseDoubleClick);
             this.dataGridViewDogs.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellValueChanged);
             this.dataGridViewDogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewDogs_DataBindingComplete);
             this.dataGridViewDogs.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewDogs_DefaultValuesNeeded);
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelName.Location = new System.Drawing.Point(718, 119);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(94, 25);
+            this.labelName.TabIndex = 5;
+            this.labelName.Text = "הכלבים של";
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(29, 161);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpdate.TabIndex = 6;
+            this.buttonUpdate.Text = "עדכן";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // DogNumber
             // 
@@ -128,11 +151,9 @@
             // 
             // DogComments
             // 
-            this.DogComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DogComments.DataPropertyName = "DogComments";
             this.DogComments.HeaderText = "הערות";
             this.DogComments.Name = "DogComments";
-            this.DogComments.Width = 64;
             // 
             // DogShvav
             // 
@@ -205,37 +226,24 @@
             this.ManagerComments.DataPropertyName = "ManagerComments";
             this.ManagerComments.HeaderText = "הערות מנהל";
             this.ManagerComments.Name = "ManagerComments";
-            this.ManagerComments.Width = 300;
+            this.ManagerComments.Width = 250;
             // 
-            // labelName
+            // Delete
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelName.Location = new System.Drawing.Point(718, 119);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(94, 25);
-            this.labelName.TabIndex = 5;
-            this.labelName.Text = "הכלבים של";
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(29, 161);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 6;
-            this.buttonUpdate.Text = "עדכן";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            this.Delete.HeaderText = "בטל";
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Width = 50;
             // 
             // Dogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1386, 751);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.dataGridViewDogs);
             this.Name = "Dogs";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Controls.SetChildIndex(this.dataGridViewDogs, 0);
             this.Controls.SetChildIndex(this.labelName, 0);
             this.Controls.SetChildIndex(this.buttonUpdate, 0);
@@ -267,5 +275,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn DogDig;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DogJump;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerComments;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

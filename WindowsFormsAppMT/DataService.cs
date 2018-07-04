@@ -82,6 +82,74 @@ namespace WindowsFormsAppMT
         }
 
         /// <summary>
+        /// שליפת הזמנות עתידיות של משתמש לפי כלב
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public List<OrderDetailsView> GetFutureOrdersByDog(DogDetailsView dogDetailsView)
+
+        {
+            string ans = "";
+            DogDetailsView userDog = new DogDetailsView();
+            string uri = URI + "Reservation/GetFutureOrders";
+            try
+            {
+                List<OrderDetailsView> list = null;
+                // string jsonContent ="{"+'"'+"fromDate"+'"'+":2018-05-15T16:07:26.9823199+03:00"+","+'"'+"toDate"+'"'+":2018-05-15T16:07:26.9833229+03:00}";
+
+                string jsonContent = JsonConvert.SerializeObject(dogDetailsView);
+                ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+                using (var client = new HttpClient())
+                {
+                    if (!string.IsNullOrWhiteSpace(LogIn.token))
+                    {
+                        var t = JsonConvert.DeserializeObject<Token>(LogIn.token);
+
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                    }
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+
+                    var response = client.PostAsync(uri, content).Result;
+                    //var response = client.GetAsync(url).Result;
+
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        ans = response.Content.ReadAsStringAsync().Result;
+                        list = JsonConvert.DeserializeObject<List<OrderDetailsView>>(ans);
+
+                    }
+                    else
+                    {
+                        ans = response.ReasonPhrase;
+
+                    }
+                    //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+
+
+                    //ans = JsonConvert.DeserializeObject<DogsForManagerView>(response.Result.Content.);
+                    //else
+                    //    ans = response.ReasonPhrase;
+
+
+
+                }
+                return list;
+            }
+
+
+
+            catch (WebException ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+        /// <summary>
         /// שליפת כל המשתמשים
         /// </summary>
         /// <returns></returns>
@@ -666,7 +734,7 @@ namespace WindowsFormsAppMT
 
                     var response = client.PostAsync(uri, content).Result;
                     //var response = client.GetAsync(url).Result;
-                    if (response.StatusCode != HttpStatusCode.Unauthorized)
+                    if (response.StatusCode != HttpStatusCode.OK)
                         ans = response.Content.ReadAsStringAsync().Result;
                     else
                         ans = response.ReasonPhrase;
@@ -677,10 +745,27 @@ namespace WindowsFormsAppMT
                     //else
                     //    ans = response.ReasonPhrase;
                 }
-                if (ans == "Unauthorized")
-               
+                if (ans != "OK")
+                {
+
                     throw new WebException(ans);
+                }
             }
+            //        if (response.StatusCode != HttpStatusCode.Unauthorized)
+            //            ans = response.Content.ReadAsStringAsync().Result;
+            //        else
+            //            ans = response.ReasonPhrase;
+            //        //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+
+
+            //        //ans = JsonConvert.DeserializeObject<DogsForManagerView>(response.Result.Content.);
+            //        //else
+            //        //    ans = response.ReasonPhrase;
+            //    }
+            //    if (ans == "Unauthorized")
+
+            //        throw new WebException(ans);
+            //}
 
             catch (WebException ex)
             {

@@ -18,7 +18,7 @@ namespace WindowsFormsAppMT
     public AddRoom()
     {
             //this.TopMost = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
 
             if (LogIn.token == null)
             {
@@ -39,7 +39,7 @@ namespace WindowsFormsAppMT
         {
 
             //this.TopMost = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
             if (LogIn.token == null)
             {
 

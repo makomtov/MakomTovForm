@@ -91,7 +91,7 @@ namespace WindowsFormsAppMT
         public Rooms()
         {
             //this.TopMost = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
 
             if (LogIn.token == null)
             {
@@ -104,15 +104,16 @@ namespace WindowsFormsAppMT
             }
             InitializeComponent();
             //   panelContainer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            GetFileInformation();
             GetFileOpenHours();
             populateCBShift();
+            GetFileInformation();
+            
         }
         public Rooms(LoginView loginView)
         {
 
             //this.TopMost = true;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
             if (LogIn.token == null)
             {
 
@@ -126,10 +127,10 @@ namespace WindowsFormsAppMT
             {
                 InitializeComponent();
                 //  panelContainer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-
-                GetFileInformation();
                 GetFileOpenHours();
                 populateCBShift();
+                GetFileInformation();
+               
                 //int w = 0;
                 //int h = 0;
                 //if (rooms.Count > 20)
@@ -156,7 +157,7 @@ namespace WindowsFormsAppMT
 
                 DataService dataService = new DataService();
                 //Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker2.Value);
-                Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker1.Value,int.Parse(comboBoxShift.ValueMember), int.Parse(comboBoxShift.ValueMember));
+                Dates dates = new Dates(dateTimePicker1.Value, dateTimePicker1.Value,int.Parse(comboBoxShift.SelectedValue.ToString()), int.Parse(comboBoxShift.SelectedValue.ToString()));
                 rooms = dataService.GetRoomsSetting(dates);
                 for (int i = 0; i < Controls.Count; i++)
                 {
@@ -180,29 +181,32 @@ namespace WindowsFormsAppMT
         private void AddPannels(List<RoomsDetailsView> rooms)
         {
             //  panelContainer.Controls.Clear();
-
-            int x = 1500;
+            
+            int x = 0;
             int y = 220;
             int numTabIndex = 50;
             roomPanel = new RoomPanel();
             roomPanels = new List<RoomPanel>();
             Panel panel = new Panel();
-            //  panel.Parent = panelContainer;
-            // panel.Anchor = AnchorStyles.Right|AnchorStyles.Top;
+            //panel.Parent = panelContainer;
+           // panel.Anchor = AnchorStyles.Left;
             panel.Name = "0";
             panel.Width = 100;
             panel.Height = 30 * rooms[0].dogsInRoom.Count;
             panel.AllowDrop = true;
             panel.DragEnter += panel_DragEnter;
             panel.DragDrop += panel_DragDrop;
+           // flowLayoutPanel1.Controls.Add(panel);
             panel.Location = new Point(x, y);
             panel.BackColor = Color.Pink;
             Label label = new Label();
             label.Location = new Point(x, y - 17);
             label.Text = "לא משובצים";
             Controls.Add(label);
+          //  flowLayoutPanel1.Controls.Add(label);
             //   this.panel1.Size = new System.Drawing.Size(200, 100);
             panel.TabIndex = numTabIndex;
+          //  panel.Show();
             //panel.Controls.Clear();
             //roomPanel.DeleteAllButtons();
             for (int d = 0; d < rooms[0].dogsInRoom.Count; d++)
@@ -224,30 +228,31 @@ namespace WindowsFormsAppMT
 
             }
             roomPanels.Add(roomPanel);
-            Controls.Add(panel);
+             Controls.Add(panel);
+         //   flowLayoutPanel1.Controls.Add(panel);
             ArrangePannel(panel);
             for (int r = 1; r < rooms.Count; r++)
             {
 
                 numTabIndex++;
-                x -= 130;
+                x += 130;
                 if (x < 20)
                 {
                     y += 350;
-                    x = 1370;
+                    x = 0;
                 }
                 panel.TabIndex = numTabIndex;
                 roomPanel = new RoomPanel();
                 panel = new Panel();
                 //  panel.Parent = panelContainer;
-
+               // panel.Anchor = AnchorStyles.Left;
                 panel.Name = r.ToString();
                 panel.Width = 100;
-                panel.Height = 300;
+                panel.Height = 200;
                 panel.AllowDrop = true;
                 panel.DragEnter += panel_DragEnter;
                 panel.DragDrop += panel_DragDrop;
-                panel.Location = new Point(x, y);
+               panel.Location = new Point(x, y);
                 panel.BackColor = Color.Pink;
                 //label = new Label();
                 //label.Name = rooms[r].RoomID.ToString();
@@ -260,7 +265,8 @@ namespace WindowsFormsAppMT
                 ButtonRoomDetails.Location = new Point(x, y - 17);
                 ButtonRoomDetails.Text = rooms[r].RoomID + " חדר ";
                 ButtonRoomDetails.Click += RoomDetails_Click;
-                Controls.Add(ButtonRoomDetails);
+                  Controls.Add(ButtonRoomDetails);
+              //  flowLayoutPanel1.Controls.Add(ButtonRoomDetails);
                 if (rooms[r].RoomStatus != 21)
                 {
                     label.Text += rooms[r].RoomStatusName;
@@ -270,7 +276,8 @@ namespace WindowsFormsAppMT
                     button.Width = 110;
                     button.Text = "הפוך חדר לפעיל";
                     button.Click += Button_Click;
-                    Controls.Add(button);
+                      Controls.Add(button);
+                  //  flowLayoutPanel1.Controls.Add(button);
                 }
                 else
                 {
@@ -281,6 +288,7 @@ namespace WindowsFormsAppMT
                     button.Text = "הפוך חדר ללא פעיל";
                     button.Click += ButtonNOt_Click;
                     Controls.Add(button);
+                  //  flowLayoutPanel1.Controls.Add(button);
                 }
                
                 //panel.Controls.Clear();
@@ -305,8 +313,9 @@ namespace WindowsFormsAppMT
                 {
                     MessageBox.Show("שים לב! יש כלבים בחדר לא פעיל");
                 }
-                Controls.Add(panel);
-
+                  Controls.Add(panel);
+               // flowLayoutPanel1.Controls.Add(panel);
+                panel.Show();
                 roomPanels.Add(roomPanel);
                 ArrangePannel(panel);
 
@@ -323,6 +332,7 @@ namespace WindowsFormsAppMT
             this.panelRoomDetails.Visible = true;
             panelRoomDetails.Show();
             Controls.Add(panelRoomDetails);
+        //  flowLayoutPanel1.Controls.Add(panelRoomDetails);
             //   string r = ((Button)sender).Name.Substring(3, ((Button)sender).Name.Length - 3);
             string r = ((Button)sender).Name;
 
@@ -351,13 +361,19 @@ namespace WindowsFormsAppMT
             
             comboBoxShift.Items.Clear();
             Item item;
+            comboBoxShift.DisplayMember = "Text";
+            comboBoxShift.ValueMember = "Value";
+
+            Item[] items = new Item[openHours.Count]; 
 
             for (int i = 0; i < openHours.Count; i++)
             {
-                item = new Item(openHours[i].Description, openHours[i].ShiftNumber);
-             
-                comboBoxShift.Items.Add(item);
+              //  item = new Item(openHours[i].Description, openHours[i].ShiftNumber);
+             items[i]= new Item(openHours[i].Description, openHours[i].ShiftNumber);
+                //comboBoxShift.Items.Add(item);
+
             }
+            comboBoxShift.DataSource = items;
             if (dateTimePicker1.Value.Hour >= 7 && dateTimePicker1.Value.Hour <= 12)
                 comboBoxShift.SelectedIndex=0;
             else
@@ -382,7 +398,7 @@ namespace WindowsFormsAppMT
 
         void panel_DragDrop(object sender, DragEventArgs e)
         {
-            if (dateTimePicker1.Value.Date.CompareTo(DateTime.Now) < 0)
+            if (dateTimePicker1.Value.Date.CompareTo(DateTime.Now.Date) < 0)
             {
                 MessageBox.Show("לא ניתן להזיז כלבים בתאריכים קודמים");
                 // e.Effect = DragDropEffects.None;
@@ -426,7 +442,7 @@ namespace WindowsFormsAppMT
                     roomPanels[int.Parse(b.Parent.Name)].AddToButtonPlace(buttonPlace);
                     roomPanels[lastPanelIndex].DeleteButton(buttonPlace.button.Name);
                     dogInRoomDetailsView.FromDateInRoom = dateTimePicker1.Value;
-                    dogInRoomDetailsView.RoomShiftFrom = int.Parse(comboBoxShift.ValueMember);
+                    dogInRoomDetailsView.RoomShiftFrom = int.Parse(comboBoxShift.SelectedValue.ToString());
                     rooms[int.Parse(b.Parent.Name)].dogsInRoom.Insert(0, dogInRoomDetailsView);
 
                     //  dogInRoomDetailsView = FindDogInRoom(index, rooms[int.Parse(b.Parent.Name)].dogsInRoom);
@@ -630,14 +646,14 @@ namespace WindowsFormsAppMT
             //panelContainer.Height = Convert.ToInt32(this.Height * 0.9);
 
         }
-        private Label FindLabel(string name)
+        private Button FindButton(string name)
         {
 
             foreach (Control c in this.Controls)
             {
-                if (c is Label)
+                if (c is Button)
                     if (c.Name == name)
-                        return (Label)c;
+                        return (Button)c;
             }
             return null;
         }
@@ -646,7 +662,7 @@ namespace WindowsFormsAppMT
         {
             string r = ((Button)sender).Name.Substring(3, ((Button)sender).Name.Length - 3);
             rooms[int.Parse(r)].RoomStatus = 21;
-            Label l = FindLabel(rooms[int.Parse(r)].RoomID.ToString());
+            Button l = FindButton(rooms[int.Parse(r)].RoomID.ToString());
             l.Text = rooms[int.Parse(r)].RoomID + " חדר ";
             ((Button)sender).Name =((Button)sender).Name.Substring(3);
             ((Button)sender).Text = "הפוך חדר ללא פעיל";
@@ -657,7 +673,7 @@ namespace WindowsFormsAppMT
         {
             string r = ((Button)sender).Name;
             rooms[int.Parse(r)].RoomStatus = 22;
-            Label l = FindLabel(rooms[int.Parse(r)].RoomID.ToString());
+            Button l = FindButton(rooms[int.Parse(r)].RoomID.ToString());
             l.Text ="לא פעיל" +rooms[int.Parse(r)].RoomID + " חדר ";
             ((Button)sender).Name ="not"+ r;
             ((Button)sender).Text = "הפוך חדר לפעיל";

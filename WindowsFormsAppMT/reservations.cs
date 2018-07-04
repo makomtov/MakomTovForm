@@ -93,10 +93,13 @@ namespace WindowsFormsAppMT
             //   GetFileUsers(URI);
             DataService dataService = new DataService();
             listOrder = dataService.GetFileOrderList(LogIn.loginView);
-            lastOrder = listOrder.Last().OrderNumber;
-             dataService = new DataService();
+            if (listOrder.Count > 0)
+            {
+                lastOrder = listOrder.Last().OrderNumber;
+                
+            }
+            dataService = new DataService();
             listOrderStatus = dataService.GetFileOrderStaus(LogIn.loginView);
-            
         }
 
         private void GetFileOpenHours()
@@ -391,7 +394,7 @@ namespace WindowsFormsAppMT
                 ShiftNumberFromCB.ValueMember = "ShiftNumber";
 
                 OrderDetailsView orderDetailsView = FindOrderInList(int.Parse(viewRow.Cells[1].Value.ToString()), listOrder);
-                viewRow.Cells["ShiftNumberFrom"].Value = orderDetailsView.ShiftNumberFrom;
+                 viewRow.Cells["ShiftNumberFrom"].Value = orderDetailsView.ShiftNumberFrom;
             }
         }
 
