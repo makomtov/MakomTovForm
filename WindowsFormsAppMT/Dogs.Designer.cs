@@ -34,9 +34,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dogs));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDogs = new System.Windows.Forms.DataGridView();
-            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
-            this.labelName = new System.Windows.Forms.Label();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.DogNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +49,12 @@
             this.DogDig = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DogJump = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelName = new System.Windows.Forms.Label();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).BeginInit();
             this.SuspendLayout();
@@ -90,26 +92,6 @@
             this.dataGridViewDogs.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDogs_CellValueChanged);
             this.dataGridViewDogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewDogs_DataBindingComplete);
             this.dataGridViewDogs.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewDogs_DefaultValuesNeeded);
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelName.Location = new System.Drawing.Point(718, 119);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(94, 25);
-            this.labelName.TabIndex = 5;
-            this.labelName.Text = "הכלבים של";
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(29, 161);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 6;
-            this.buttonUpdate.Text = "עדכן";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // DogNumber
             // 
@@ -231,10 +213,50 @@
             // Delete
             // 
             this.Delete.HeaderText = "בטל";
+            this.Delete.Image = global::WindowsFormsAppMT.Properties.Resources.if_Delete_MT;
+            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Delete.Name = "Delete";
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Delete.Width = 50;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelName.Location = new System.Drawing.Point(718, 119);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(94, 25);
+            this.labelName.TabIndex = 5;
+            this.labelName.Text = "הכלבים של";
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ImageIndex = 0;
+            this.buttonUpdate.ImageList = this.imageList1;
+            this.buttonUpdate.Location = new System.Drawing.Point(29, 104);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(127, 51);
+            this.buttonUpdate.TabIndex = 6;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Update.jpg");
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "בטל";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 50;
             // 
             // Dogs
             // 
@@ -260,6 +282,7 @@
         private System.Windows.Forms.BindingSource bindingSourceDogs;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DogNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn DogImageUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn DogName;
@@ -275,6 +298,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn DogDig;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DogJump;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManagerComments;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

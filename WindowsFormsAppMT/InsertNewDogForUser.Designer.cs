@@ -279,7 +279,7 @@
             // InsertNewDogForUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1470, 719);
+            this.ClientSize = new System.Drawing.Size(1370, 719);
             this.Controls.Add(this.checkBoxDogNeuter);
             this.Controls.Add(this.labelDogNeuter);
             this.Controls.Add(this.textBoxusercomments);

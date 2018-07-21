@@ -100,6 +100,7 @@ namespace WindowsFormsAppMT
             this.dataGridViewOrders.AllowUserToDeleteRows = false;
             this.dataGridViewOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewOrders.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridViewOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
@@ -255,6 +256,7 @@ namespace WindowsFormsAppMT
             // 
             this.dataGridViewDogsInOrder.AllowUserToAddRows = false;
             this.dataGridViewDogsInOrder.AllowUserToDeleteRows = false;
+            this.dataGridViewDogsInOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewDogsInOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDogsInOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DogName,
@@ -364,7 +366,7 @@ namespace WindowsFormsAppMT
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1483, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -480,7 +482,7 @@ namespace WindowsFormsAppMT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1483, 728);
+            this.ClientSize = new System.Drawing.Size(1370, 728);
             this.Controls.Add(this.labelOR);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxOrderNumber);

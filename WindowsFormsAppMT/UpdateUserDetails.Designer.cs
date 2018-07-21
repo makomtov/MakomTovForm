@@ -30,6 +30,7 @@
             private void InitializeComponent()
             {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateUserDetails));
             this.labelUserFirstName = new System.Windows.Forms.Label();
             this.labelUserLastName = new System.Windows.Forms.Label();
             this.labelUserEmail = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.textBoxUserLastName = new System.Windows.Forms.TextBox();
             this.comboBoxUserCityName = new System.Windows.Forms.ComboBox();
             this.textBoxusercomments = new System.Windows.Forms.TextBox();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
             this.labelVetName = new System.Windows.Forms.Label();
             this.textBoxVetName = new System.Windows.Forms.TextBox();
@@ -55,6 +55,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxAccept = new System.Windows.Forms.CheckBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,16 +198,6 @@
             this.textBoxusercomments.Size = new System.Drawing.Size(121, 108);
             this.textBoxusercomments.TabIndex = 22;
             // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(354, 568);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 23;
-            this.buttonUpdate.Text = "עדכן";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
             // labelError
             // 
             this.labelError.AutoSize = true;
@@ -271,10 +263,30 @@
             this.checkBoxAccept.TabIndex = 30;
             this.checkBoxAccept.UseVisualStyleBackColor = true;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ImageIndex = 0;
+            this.buttonUpdate.ImageList = this.imageList1;
+            this.buttonUpdate.Location = new System.Drawing.Point(325, 545);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(127, 51);
+            this.buttonUpdate.TabIndex = 32;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Update.jpg");
+            // 
             // UpdateUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(711, 644);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxAccept);
             this.Controls.Add(this.textBoxVetPhone);
@@ -282,7 +294,6 @@
             this.Controls.Add(this.textBoxVetName);
             this.Controls.Add(this.labelVetName);
             this.Controls.Add(this.labelError);
-            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxusercomments);
             this.Controls.Add(this.comboBoxUserCityName);
             this.Controls.Add(this.textBoxUserLastName);
@@ -300,7 +311,6 @@
             this.Controls.Add(this.labelUserLastName);
             this.Controls.Add(this.labelUserFirstName);
             this.Name = "UpdateUserDetails";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Controls.SetChildIndex(this.labelUserFirstName, 0);
             this.Controls.SetChildIndex(this.labelUserLastName, 0);
             this.Controls.SetChildIndex(this.labelUserEmail, 0);
@@ -317,7 +327,6 @@
             this.Controls.SetChildIndex(this.textBoxUserLastName, 0);
             this.Controls.SetChildIndex(this.comboBoxUserCityName, 0);
             this.Controls.SetChildIndex(this.textBoxusercomments, 0);
-            this.Controls.SetChildIndex(this.buttonUpdate, 0);
             this.Controls.SetChildIndex(this.labelError, 0);
             this.Controls.SetChildIndex(this.labelVetName, 0);
             this.Controls.SetChildIndex(this.textBoxVetName, 0);
@@ -325,6 +334,7 @@
             this.Controls.SetChildIndex(this.textBoxVetPhone, 0);
             this.Controls.SetChildIndex(this.checkBoxAccept, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.buttonUpdate, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,7 +359,6 @@
         private System.Windows.Forms.TextBox textBoxUserLastName;
         private System.Windows.Forms.ComboBox comboBoxUserCityName;
         private System.Windows.Forms.TextBox textBoxusercomments;
-        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Label labelVetName;
         private System.Windows.Forms.TextBox textBoxVetName;
@@ -358,6 +367,8 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxAccept;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.ImageList imageList1;
     }
 
 

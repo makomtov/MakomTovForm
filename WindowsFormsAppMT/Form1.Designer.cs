@@ -29,9 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UserFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserEmail = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.useraddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserPhones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysSumForDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcceptMessages = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DogsWatch = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ReservationsNumber = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CreateOrder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Vet = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.UserComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddDog = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.UpdateDtails = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingSourceDogs = new System.Windows.Forms.BindingSource(this.components);
@@ -54,21 +69,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserEmail = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.useraddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserPhones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaysSumForDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcceptMessages = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DogsWatch = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ReservationsNumber = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CreateOrder = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Vet = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.UserComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddDog = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.UpdateDtails = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -106,6 +106,130 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+            // 
+            // UserFirstName
+            // 
+            this.UserFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserFirstName.DataPropertyName = "UserFirstName";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UserFirstName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.UserFirstName.FillWeight = 45.57619F;
+            this.UserFirstName.Frozen = true;
+            this.UserFirstName.HeaderText = "שם פרטי";
+            this.UserFirstName.Name = "UserFirstName";
+            this.UserFirstName.ReadOnly = true;
+            this.UserFirstName.Width = 70;
+            // 
+            // User
+            // 
+            this.User.DataPropertyName = "UserID";
+            this.User.HeaderText = "Column1";
+            this.User.Name = "User";
+            this.User.Visible = false;
+            // 
+            // UserLastName
+            // 
+            this.UserLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UserLastName.DataPropertyName = "UserLastName";
+            this.UserLastName.FillWeight = 45.57619F;
+            this.UserLastName.HeaderText = "שם משפחה";
+            this.UserLastName.Name = "UserLastName";
+            this.UserLastName.ReadOnly = true;
+            this.UserLastName.Width = 81;
+            // 
+            // UserEmail
+            // 
+            this.UserEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UserEmail.DataPropertyName = "UserEmail";
+            this.UserEmail.FillWeight = 45.57619F;
+            this.UserEmail.HeaderText = "מייל";
+            this.UserEmail.Name = "UserEmail";
+            this.UserEmail.ReadOnly = true;
+            this.UserEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.UserEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.UserEmail.Width = 56;
+            // 
+            // useraddress
+            // 
+            this.useraddress.HeaderText = "כתובת";
+            this.useraddress.Name = "useraddress";
+            this.useraddress.ReadOnly = true;
+            this.useraddress.Width = 200;
+            // 
+            // UserPhones
+            // 
+            this.UserPhones.HeaderText = "טלפונים";
+            this.UserPhones.Name = "UserPhones";
+            this.UserPhones.ReadOnly = true;
+            this.UserPhones.Width = 106;
+            // 
+            // DaysSumForDiscount
+            // 
+            this.DaysSumForDiscount.DataPropertyName = "DaysSumForDiscount";
+            this.DaysSumForDiscount.HeaderText = "ימים צבורים";
+            this.DaysSumForDiscount.Name = "DaysSumForDiscount";
+            this.DaysSumForDiscount.ReadOnly = true;
+            this.DaysSumForDiscount.Width = 50;
+            // 
+            // AcceptMessages
+            // 
+            this.AcceptMessages.DataPropertyName = "Acceptmessages";
+            this.AcceptMessages.HeaderText = "מקבל הודעות?";
+            this.AcceptMessages.Name = "AcceptMessages";
+            this.AcceptMessages.ReadOnly = true;
+            this.AcceptMessages.Width = 106;
+            // 
+            // DogsWatch
+            // 
+            this.DogsWatch.DataPropertyName = "DogsNumber";
+            this.DogsWatch.HeaderText = "הכלבים";
+            this.DogsWatch.Name = "DogsWatch";
+            this.DogsWatch.ReadOnly = true;
+            this.DogsWatch.Width = 50;
+            // 
+            // ReservationsNumber
+            // 
+            this.ReservationsNumber.DataPropertyName = "ReservationsNumber";
+            this.ReservationsNumber.HeaderText = "הזמנות";
+            this.ReservationsNumber.Name = "ReservationsNumber";
+            this.ReservationsNumber.ReadOnly = true;
+            this.ReservationsNumber.Width = 50;
+            // 
+            // CreateOrder
+            // 
+            this.CreateOrder.HeaderText = "צור הזמנה";
+            this.CreateOrder.Name = "CreateOrder";
+            this.CreateOrder.ReadOnly = true;
+            this.CreateOrder.Width = 50;
+            // 
+            // Vet
+            // 
+            this.Vet.HeaderText = "וטרינר";
+            this.Vet.Name = "Vet";
+            this.Vet.Width = 50;
+            // 
+            // UserComments
+            // 
+            this.UserComments.DataPropertyName = "UserComments";
+            this.UserComments.HeaderText = "הערות";
+            this.UserComments.Name = "UserComments";
+            this.UserComments.Width = 200;
+            // 
+            // AddDog
+            // 
+            this.AddDog.HeaderText = "הוסף כלב";
+            this.AddDog.Name = "AddDog";
+            this.AddDog.Width = 50;
+            // 
+            // UpdateDtails
+            // 
+            this.UpdateDtails.HeaderText = "עדכן";
+            this.UpdateDtails.Name = "UpdateDtails";
+            this.UpdateDtails.Text = "עדכן";
+            this.UpdateDtails.ToolTipText = "עדכן";
+            this.UpdateDtails.UseColumnTextForButtonValue = true;
+            this.UpdateDtails.Width = 50;
             // 
             // bindingNavigator1
             // 
@@ -235,7 +359,7 @@
             // comboBoxFindUser
             // 
             this.comboBoxFindUser.FormattingEnabled = true;
-            this.comboBoxFindUser.Location = new System.Drawing.Point(1188, 108);
+            this.comboBoxFindUser.Location = new System.Drawing.Point(1187, 86);
             this.comboBoxFindUser.Name = "comboBoxFindUser";
             this.comboBoxFindUser.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFindUser.TabIndex = 6;
@@ -296,130 +420,6 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "הערות";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // UserFirstName
-            // 
-            this.UserFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.UserFirstName.DataPropertyName = "UserFirstName";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserFirstName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.UserFirstName.FillWeight = 45.57619F;
-            this.UserFirstName.Frozen = true;
-            this.UserFirstName.HeaderText = "שם פרטי";
-            this.UserFirstName.Name = "UserFirstName";
-            this.UserFirstName.ReadOnly = true;
-            this.UserFirstName.Width = 70;
-            // 
-            // User
-            // 
-            this.User.DataPropertyName = "UserID";
-            this.User.HeaderText = "Column1";
-            this.User.Name = "User";
-            this.User.Visible = false;
-            // 
-            // UserLastName
-            // 
-            this.UserLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UserLastName.DataPropertyName = "UserLastName";
-            this.UserLastName.FillWeight = 45.57619F;
-            this.UserLastName.HeaderText = "שם משפחה";
-            this.UserLastName.Name = "UserLastName";
-            this.UserLastName.ReadOnly = true;
-            this.UserLastName.Width = 81;
-            // 
-            // UserEmail
-            // 
-            this.UserEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UserEmail.DataPropertyName = "UserEmail";
-            this.UserEmail.FillWeight = 45.57619F;
-            this.UserEmail.HeaderText = "מייל";
-            this.UserEmail.Name = "UserEmail";
-            this.UserEmail.ReadOnly = true;
-            this.UserEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.UserEmail.Width = 56;
-            // 
-            // useraddress
-            // 
-            this.useraddress.HeaderText = "כתובת";
-            this.useraddress.Name = "useraddress";
-            this.useraddress.ReadOnly = true;
-            this.useraddress.Width = 200;
-            // 
-            // UserPhones
-            // 
-            this.UserPhones.HeaderText = "טלפונים";
-            this.UserPhones.Name = "UserPhones";
-            this.UserPhones.ReadOnly = true;
-            this.UserPhones.Width = 106;
-            // 
-            // DaysSumForDiscount
-            // 
-            this.DaysSumForDiscount.DataPropertyName = "DaysSumForDiscount";
-            this.DaysSumForDiscount.HeaderText = "ימים צבורים";
-            this.DaysSumForDiscount.Name = "DaysSumForDiscount";
-            this.DaysSumForDiscount.ReadOnly = true;
-            this.DaysSumForDiscount.Width = 50;
-            // 
-            // AcceptMessages
-            // 
-            this.AcceptMessages.DataPropertyName = "Acceptmessages";
-            this.AcceptMessages.HeaderText = "מקבל הודעות?";
-            this.AcceptMessages.Name = "AcceptMessages";
-            this.AcceptMessages.ReadOnly = true;
-            this.AcceptMessages.Width = 106;
-            // 
-            // DogsWatch
-            // 
-            this.DogsWatch.DataPropertyName = "DogsNumber";
-            this.DogsWatch.HeaderText = "הכלבים";
-            this.DogsWatch.Name = "DogsWatch";
-            this.DogsWatch.ReadOnly = true;
-            this.DogsWatch.Width = 50;
-            // 
-            // ReservationsNumber
-            // 
-            this.ReservationsNumber.DataPropertyName = "ReservationsNumber";
-            this.ReservationsNumber.HeaderText = "הזמנות";
-            this.ReservationsNumber.Name = "ReservationsNumber";
-            this.ReservationsNumber.ReadOnly = true;
-            this.ReservationsNumber.Width = 50;
-            // 
-            // CreateOrder
-            // 
-            this.CreateOrder.HeaderText = "צור הזמנה";
-            this.CreateOrder.Name = "CreateOrder";
-            this.CreateOrder.ReadOnly = true;
-            this.CreateOrder.Width = 50;
-            // 
-            // Vet
-            // 
-            this.Vet.HeaderText = "וטרינר";
-            this.Vet.Name = "Vet";
-            this.Vet.Width = 50;
-            // 
-            // UserComments
-            // 
-            this.UserComments.DataPropertyName = "UserComments";
-            this.UserComments.HeaderText = "הערות";
-            this.UserComments.Name = "UserComments";
-            this.UserComments.Width = 200;
-            // 
-            // AddDog
-            // 
-            this.AddDog.HeaderText = "הוסף כלב";
-            this.AddDog.Name = "AddDog";
-            this.AddDog.Width = 50;
-            // 
-            // UpdateDtails
-            // 
-            this.UpdateDtails.HeaderText = "עדכן";
-            this.UpdateDtails.Name = "UpdateDtails";
-            this.UpdateDtails.Text = "עדכן";
-            this.UpdateDtails.ToolTipText = "עדכן";
-            this.UpdateDtails.UseColumnTextForButtonValue = true;
-            this.UpdateDtails.Width = 50;
             // 
             // Form1
             // 

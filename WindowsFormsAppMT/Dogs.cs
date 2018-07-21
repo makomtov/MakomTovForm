@@ -216,7 +216,8 @@ namespace WindowsFormsAppMT
                 dataService.UpdateUserDogs(dogsForManagerView);
                 GetDogsInformation(userDetailsView.UserID.ToString());
                 // listOrder = user.UserReservations;
-              
+                MessageBox.Show("עודכן בהצלחה");
+
             }
             catch (WebException ex)
             {

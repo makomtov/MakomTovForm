@@ -37,6 +37,7 @@
             this.ביטולמשתמשToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ניהולכלביםבפנסיוןToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.הוסףעדכןחדריםToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.מחירוןToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,8 @@
             // toolStripMenuItemReservations
             // 
             this.toolStripMenuItemReservations.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemWatchOrders});
+            this.ToolStripMenuItemWatchOrders,
+            this.מחירוןToolStripMenuItem});
             this.toolStripMenuItemReservations.Name = "toolStripMenuItemReservations";
             this.toolStripMenuItemReservations.Size = new System.Drawing.Size(85, 20);
             this.toolStripMenuItemReservations.Text = "ניהול הזמנות";
@@ -67,7 +69,7 @@
             // ToolStripMenuItemWatchOrders
             // 
             this.ToolStripMenuItemWatchOrders.Name = "ToolStripMenuItemWatchOrders";
-            this.ToolStripMenuItemWatchOrders.Size = new System.Drawing.Size(172, 22);
+            this.ToolStripMenuItemWatchOrders.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemWatchOrders.Text = "צפיה בכל ההזמנות";
             this.ToolStripMenuItemWatchOrders.Click += new System.EventHandler(this.ToolStripMenuItemWatchOrders_Click);
             // 
@@ -116,6 +118,13 @@
             this.הוסףעדכןחדריםToolStripMenuItem.Text = "הוסף חדר ";
             this.הוסףעדכןחדריםToolStripMenuItem.Click += new System.EventHandler(this.הוסףעדכןחדריםToolStripMenuItem_Click);
             // 
+            // מחירוןToolStripMenuItem
+            // 
+            this.מחירוןToolStripMenuItem.Name = "מחירוןToolStripMenuItem";
+            this.מחירוןToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.מחירוןToolStripMenuItem.Text = "מחירון";
+            this.מחירוןToolStripMenuItem.Click += new System.EventHandler(this.מחירוןToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem ביטולמשתמשToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ניהולכלביםבפנסיוןToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem הוסףעדכןחדריםToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem מחירוןToolStripMenuItem;
     }
 }

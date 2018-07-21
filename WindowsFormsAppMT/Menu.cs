@@ -87,5 +87,12 @@ namespace WindowsFormsAppMT
             AddRoom addRoom=new AddRoom(LogIn.loginView);
             addRoom.Show();
         }
+
+        private void מחירוןToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Prices prices = new Prices(LogIn.loginView);
+            prices.Show();
+        }
     }
 }

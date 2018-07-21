@@ -195,6 +195,53 @@ namespace WindowsFormsAppMT
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// שליפת המחירון
+        /// </summary>
+        /// <returns></returns>
+        public List<PricesView> GetPrices(LoginView loginView)
+        {
+
+            try
+            {
+
+                List<PricesView> filesinformation = new List<PricesView>();
+                string uri = URI + "Prices/GetPrices";
+
+                // string response = CallApi(URI, token,null);
+                ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+                using (var client = new HttpClient())
+                {
+                    if (!string.IsNullOrWhiteSpace(LogIn.token))
+                    {
+                        var t = JsonConvert.DeserializeObject<Token>(LogIn.token);
+
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                    }
+
+                    //var encodedContent = new FormUrlEncodedContent(parameters);
+                    //var response = await HttpClient.PostAsync(url, encodedContent).ConfigureAwait(false);
+                    var response = client.GetAsync(uri).Result;
+
+                    
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        filesinformation = JsonConvert.DeserializeObject<List<PricesView>>(response.Content.ReadAsStringAsync().Result);
+                        return filesinformation;
+                    }
+
+                    else
+                        throw new WebException(response.ReasonPhrase);
+                }
+            }
+            catch (WebException ex)
+            {
+
+                throw ex;
+            }
+        }
         /// <summary>
         /// שליפת כל ההזמנות
         /// </summary>

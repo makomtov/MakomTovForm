@@ -691,7 +691,8 @@ namespace WindowsFormsAppMT
                 DataService dataService = new DataService();
                 dataService.UpdateRoomsDetailsAndSetting(rooms);
                 GetFileInformation();
-               
+                MessageBox.Show("עודכן בהצלחה");
+
             }
             catch (WebException ex)
             {
@@ -702,7 +703,7 @@ namespace WindowsFormsAppMT
                     HttpWebResponse wrsp = (HttpWebResponse)ex.Response;
                     var statusCode = (int)wrsp.StatusCode;
                     var msg = wrsp.StatusDescription;
-
+                    MessageBox.Show(msg);
                     //  string url = "http://localhost:53698/api/Reservation/UpdateOrdersByManager";
                     ////  client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
                     //   client.Headers[HttpRequestHeader.ContentType] = "application/json; charset=utf-8";
@@ -731,5 +732,7 @@ namespace WindowsFormsAppMT
             rooms[roomNumber].RoomComments = textBoxRoomcomments.Text;
             rooms[roomNumber].RoomDescription = textBoxRoomDescription.Text;
         }
+
+        
     }
 }

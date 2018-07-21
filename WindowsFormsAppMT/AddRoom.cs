@@ -12,11 +12,9 @@ namespace WindowsFormsAppMT
 {
     public partial class AddRoom : WindowsFormsAppMT.Menu
     {
-        
-       
 
-    public AddRoom()
-    {
+        public AddRoom()
+        {
             //this.TopMost = true;
             this.WindowState = FormWindowState.Maximized;
 
@@ -78,11 +76,11 @@ namespace WindowsFormsAppMT
 
         private void button1_Click(object sender, EventArgs e)
         {
-        //    if (ErrorProviderExtensions.HasErrors(errorProvider1))
-        //        return;
+            //    if (ErrorProviderExtensions.HasErrors(errorProvider1))
+            //        return;
             RoomsDetailsView roomsDetailsView = new RoomsDetailsView();
-           if(comboBox1.Text!="")
-            roomsDetailsView.RoomCapacity =int.Parse(comboBox1.Text);
+            if (comboBox1.Text != "")
+                roomsDetailsView.RoomCapacity = int.Parse(comboBox1.Text);
             roomsDetailsView.RoomComments = textBoxRoomcomments.Text;
             roomsDetailsView.RoomDescription = textBoxRoomDescription.Text;
             try
@@ -115,5 +113,7 @@ namespace WindowsFormsAppMT
                 //}
             }
         }
+
+
     }
 }

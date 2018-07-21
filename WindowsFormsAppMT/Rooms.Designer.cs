@@ -31,18 +31,34 @@ namespace WindowsFormsAppMT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.buttonUpdate = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rooms));
             this.dataGridViewDog = new System.Windows.Forms.DataGridView();
+            this.DogNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DogComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogShvav = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogNeuter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DogRabiesVaccine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogFriendlyWith = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DogDig = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DogJump = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VetTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToDateInPension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.labelFrom = new System.Windows.Forms.Label();
@@ -73,36 +89,12 @@ namespace WindowsFormsAppMT
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogShvav = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogRabiesVaccine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogFriendlyWith = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VetTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToDateInPension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.buttonUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).BeginInit();
             this.panelRoomDetails.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(1200, 37);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 6;
-            this.buttonUpdate.Text = "עדכן";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // dataGridViewDog
             // 
@@ -132,26 +124,84 @@ namespace WindowsFormsAppMT
             this.OrderNumber,
             this.Owner,
             this.ToDateInPension});
-            this.dataGridViewDog.Location = new System.Drawing.Point(0, 72);
+            this.dataGridViewDog.Location = new System.Drawing.Point(0, 82);
             this.dataGridViewDog.Name = "dataGridViewDog";
+            this.dataGridViewDog.ReadOnly = true;
             this.dataGridViewDog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridViewDog.Size = new System.Drawing.Size(1283, 70);
+            this.dataGridViewDog.Size = new System.Drawing.Size(1300, 70);
             this.dataGridViewDog.TabIndex = 10;
             this.dataGridViewDog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDog_CellContentClick);
+            // 
+            // DogNumber
+            // 
+            this.DogNumber.DataPropertyName = "DogNumber";
+            this.DogNumber.Frozen = true;
+            this.DogNumber.HeaderText = "Column1";
+            this.DogNumber.Name = "DogNumber";
+            this.DogNumber.Visible = false;
+            // 
+            // DogName
+            // 
+            this.DogName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DogName.DataPropertyName = "DogName";
+            this.DogName.Frozen = true;
+            this.DogName.HeaderText = "שם כלב";
+            this.DogName.Name = "DogName";
+            this.DogName.Width = 72;
+            // 
+            // DogImageUrl
+            // 
+            this.DogImageUrl.DataPropertyName = "DogImage";
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.DogImageUrl.DefaultCellStyle = dataGridViewCellStyle25;
+            this.DogImageUrl.HeaderText = "DogImageUrl";
+            this.DogImageUrl.Name = "DogImageUrl";
+            this.DogImageUrl.ReadOnly = true;
+            this.DogImageUrl.Visible = false;
             // 
             // DogImage
             // 
             this.DogImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DogImage.DataPropertyName = "DogImage";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DogImage.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.NullValue = null;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DogImage.DefaultCellStyle = dataGridViewCellStyle26;
             this.DogImage.HeaderText = "תמונה";
             this.DogImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.DogImage.MinimumWidth = 100;
             this.DogImage.Name = "DogImage";
+            this.DogImage.ReadOnly = true;
             this.DogImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // DogComments
+            // 
+            this.DogComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DogComments.DataPropertyName = "DogComments";
+            this.DogComments.HeaderText = "הערות";
+            this.DogComments.Name = "DogComments";
+            this.DogComments.Width = 64;
+            // 
+            // DogShvav
+            // 
+            this.DogShvav.DataPropertyName = "DogShvav";
+            this.DogShvav.HeaderText = "שבב";
+            this.DogShvav.Name = "DogShvav";
+            // 
+            // DogType
+            // 
+            this.DogType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DogType.DataPropertyName = "DogType";
+            this.DogType.HeaderText = "גזע";
+            this.DogType.Name = "DogType";
+            // 
+            // DogGender
+            // 
+            this.DogGender.DataPropertyName = "DogGender";
+            this.DogGender.HeaderText = "מין";
+            this.DogGender.Name = "DogGender";
+            this.DogGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DogGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // DogNeuter
             // 
@@ -161,6 +211,28 @@ namespace WindowsFormsAppMT
             this.DogNeuter.Name = "DogNeuter";
             this.DogNeuter.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DogNeuter.Width = 51;
+            // 
+            // DogRabiesVaccine
+            // 
+            this.DogRabiesVaccine.DataPropertyName = "DogRabiesVaccine";
+            this.DogRabiesVaccine.HeaderText = "תאריך חיסון";
+            this.DogRabiesVaccine.Name = "DogRabiesVaccine";
+            // 
+            // DogBirthDate
+            // 
+            this.DogBirthDate.DataPropertyName = "DogAge";
+            dataGridViewCellStyle27.Format = "N1";
+            dataGridViewCellStyle27.NullValue = null;
+            this.DogBirthDate.DefaultCellStyle = dataGridViewCellStyle27;
+            this.DogBirthDate.HeaderText = "גיל";
+            this.DogBirthDate.Name = "DogBirthDate";
+            this.DogBirthDate.ReadOnly = true;
+            // 
+            // DogFriendlyWith
+            // 
+            this.DogFriendlyWith.DataPropertyName = "DogFriendlyWith";
+            this.DogFriendlyWith.HeaderText = "מסתדר עם";
+            this.DogFriendlyWith.Name = "DogFriendlyWith";
             // 
             // DogDig
             // 
@@ -177,6 +249,49 @@ namespace WindowsFormsAppMT
             this.DogJump.HeaderText = "קופץ?";
             this.DogJump.Name = "DogJump";
             this.DogJump.Width = 46;
+            // 
+            // ManagerComments
+            // 
+            this.ManagerComments.DataPropertyName = "ManagerComments";
+            this.ManagerComments.HeaderText = "הערות מנהל";
+            this.ManagerComments.Name = "ManagerComments";
+            this.ManagerComments.Width = 300;
+            // 
+            // VetName
+            // 
+            this.VetName.DataPropertyName = "VeterinarName";
+            this.VetName.HeaderText = "שם וטרינר";
+            this.VetName.Name = "VetName";
+            this.VetName.ReadOnly = true;
+            // 
+            // VetTel
+            // 
+            this.VetTel.DataPropertyName = "VeterinarPhone1";
+            this.VetTel.HeaderText = "טלפון וטרינר";
+            this.VetTel.Name = "VetTel";
+            this.VetTel.ReadOnly = true;
+            // 
+            // OrderNumber
+            // 
+            this.OrderNumber.DataPropertyName = "OrderNumber";
+            this.OrderNumber.HeaderText = "מספר הזמנה";
+            this.OrderNumber.Name = "OrderNumber";
+            this.OrderNumber.ReadOnly = true;
+            this.OrderNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Owner
+            // 
+            this.Owner.DataPropertyName = "Owner";
+            this.Owner.HeaderText = "...אני של";
+            this.Owner.Name = "Owner";
+            this.Owner.ReadOnly = true;
+            // 
+            // ToDateInPension
+            // 
+            this.ToDateInPension.DataPropertyName = "ToDateInPension";
+            this.ToDateInPension.HeaderText = "...אני פה עד";
+            this.ToDateInPension.Name = "ToDateInPension";
+            this.ToDateInPension.ReadOnly = true;
             // 
             // dateTimePicker1
             // 
@@ -317,20 +432,19 @@ namespace WindowsFormsAppMT
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "DogImage";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "DogImageUrl";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 72;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "DogName";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn3.HeaderText = "שם כלב";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Visible = false;
@@ -341,7 +455,6 @@ namespace WindowsFormsAppMT
             this.dataGridViewTextBoxColumn4.DataPropertyName = "DogComments";
             this.dataGridViewTextBoxColumn4.HeaderText = "הערות";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 64;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -373,9 +486,9 @@ namespace WindowsFormsAppMT
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "DogAge";
-            dataGridViewCellStyle6.Format = "N1";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Format = "N1";
+            dataGridViewCellStyle30.NullValue = null;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn9.HeaderText = "גיל";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
@@ -428,129 +541,30 @@ namespace WindowsFormsAppMT
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
-            // DogNumber
+            // imageList1
             // 
-            this.DogNumber.DataPropertyName = "DogNumber";
-            this.DogNumber.Frozen = true;
-            this.DogNumber.HeaderText = "Column1";
-            this.DogNumber.Name = "DogNumber";
-            this.DogNumber.Visible = false;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Update.jpg");
             // 
-            // DogName
+            // buttonUpdate
             // 
-            this.DogName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DogName.DataPropertyName = "DogName";
-            this.DogName.Frozen = true;
-            this.DogName.HeaderText = "שם כלב";
-            this.DogName.Name = "DogName";
-            this.DogName.Width = 72;
-            // 
-            // DogImageUrl
-            // 
-            this.DogImageUrl.DataPropertyName = "DogImage";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.DogImageUrl.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DogImageUrl.HeaderText = "DogImageUrl";
-            this.DogImageUrl.Name = "DogImageUrl";
-            this.DogImageUrl.Visible = false;
-            // 
-            // DogComments
-            // 
-            this.DogComments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DogComments.DataPropertyName = "DogComments";
-            this.DogComments.HeaderText = "הערות";
-            this.DogComments.Name = "DogComments";
-            this.DogComments.Width = 64;
-            // 
-            // DogShvav
-            // 
-            this.DogShvav.DataPropertyName = "DogShvav";
-            this.DogShvav.HeaderText = "שבב";
-            this.DogShvav.Name = "DogShvav";
-            // 
-            // DogType
-            // 
-            this.DogType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DogType.DataPropertyName = "DogType";
-            this.DogType.HeaderText = "גזע";
-            this.DogType.Name = "DogType";
-            // 
-            // DogGender
-            // 
-            this.DogGender.DataPropertyName = "DogGender";
-            this.DogGender.HeaderText = "מין";
-            this.DogGender.Name = "DogGender";
-            this.DogGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DogGender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DogRabiesVaccine
-            // 
-            this.DogRabiesVaccine.DataPropertyName = "DogRabiesVaccine";
-            this.DogRabiesVaccine.HeaderText = "תאריך חיסון";
-            this.DogRabiesVaccine.Name = "DogRabiesVaccine";
-            // 
-            // DogBirthDate
-            // 
-            this.DogBirthDate.DataPropertyName = "DogAge";
-            dataGridViewCellStyle3.Format = "N1";
-            dataGridViewCellStyle3.NullValue = null;
-            this.DogBirthDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DogBirthDate.HeaderText = "גיל";
-            this.DogBirthDate.Name = "DogBirthDate";
-            // 
-            // DogFriendlyWith
-            // 
-            this.DogFriendlyWith.DataPropertyName = "DogFriendlyWith";
-            this.DogFriendlyWith.HeaderText = "מסתדר עם";
-            this.DogFriendlyWith.Name = "DogFriendlyWith";
-            // 
-            // ManagerComments
-            // 
-            this.ManagerComments.DataPropertyName = "ManagerComments";
-            this.ManagerComments.HeaderText = "הערות מנהל";
-            this.ManagerComments.Name = "ManagerComments";
-            this.ManagerComments.Width = 300;
-            // 
-            // VetName
-            // 
-            this.VetName.DataPropertyName = "VeterinarName";
-            this.VetName.HeaderText = "שם וטרינר";
-            this.VetName.Name = "VetName";
-            this.VetName.ReadOnly = true;
-            // 
-            // VetTel
-            // 
-            this.VetTel.DataPropertyName = "VeterinarPhone1";
-            this.VetTel.HeaderText = "טלפון וטרינר";
-            this.VetTel.Name = "VetTel";
-            this.VetTel.ReadOnly = true;
-            // 
-            // OrderNumber
-            // 
-            this.OrderNumber.DataPropertyName = "OrderNumber";
-            this.OrderNumber.HeaderText = "מספר הזמנה";
-            this.OrderNumber.Name = "OrderNumber";
-            this.OrderNumber.ReadOnly = true;
-            this.OrderNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Owner
-            // 
-            this.Owner.DataPropertyName = "Owner";
-            this.Owner.HeaderText = "...אני של";
-            this.Owner.Name = "Owner";
-            this.Owner.ReadOnly = true;
-            // 
-            // ToDateInPension
-            // 
-            this.ToDateInPension.DataPropertyName = "ToDateInPension";
-            this.ToDateInPension.HeaderText = "...אני פה עד";
-            this.ToDateInPension.Name = "ToDateInPension";
-            this.ToDateInPension.ReadOnly = true;
+            this.buttonUpdate.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ImageIndex = 0;
+            this.buttonUpdate.ImageList = this.imageList1;
+            this.buttonUpdate.Location = new System.Drawing.Point(1156, 27);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(127, 51);
+            this.buttonUpdate.TabIndex = 33;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1283, 741);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.panelRoomDetails);
             this.Controls.Add(this.comboBoxShift);
             this.Controls.Add(this.labelArrivalTime);
@@ -560,11 +574,9 @@ namespace WindowsFormsAppMT
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridViewDog);
-            this.Controls.Add(this.buttonUpdate);
             this.Name = "Rooms";
             this.RightToLeftLayout = true;
             this.Resize += new System.EventHandler(this.Rooms_Resize);
-            this.Controls.SetChildIndex(this.buttonUpdate, 0);
             this.Controls.SetChildIndex(this.dataGridViewDog, 0);
             this.Controls.SetChildIndex(this.dateTimePicker1, 0);
             this.Controls.SetChildIndex(this.dateTimePicker2, 0);
@@ -574,6 +586,7 @@ namespace WindowsFormsAppMT
             this.Controls.SetChildIndex(this.labelArrivalTime, 0);
             this.Controls.SetChildIndex(this.comboBoxShift, 0);
             this.Controls.SetChildIndex(this.panelRoomDetails, 0);
+            this.Controls.SetChildIndex(this.buttonUpdate, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDogs)).EndInit();
             this.panelRoomDetails.ResumeLayout(false);
@@ -586,7 +599,6 @@ namespace WindowsFormsAppMT
         
 
         #endregion
-        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.DataGridView dataGridViewDog;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -639,5 +651,7 @@ namespace WindowsFormsAppMT
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonUpdateRoom;
         private System.Windows.Forms.TextBox textBoxRoomcomments;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button buttonUpdate;
     }
 }
